@@ -34,11 +34,15 @@ def generate_quiz():
 
     # 將生成的問題存儲到 session 中
     session['quiz_questions'] = generated_questions
+    session['current_question'] = 0
+    session['correct_answers'] = 0
+    session['user_answers'] = []
 
     # 打印或處理接收到的數據
     print(f'Selected Languages: {selected_languages}')
     print(f'Number of Questions: {num_questions}')
     print(f'Question Types: {question_types}')
+
 
     return jsonify(success=True)
 
