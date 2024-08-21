@@ -1,0 +1,30 @@
+{% extends "baseImports.html" %}
+
+{% block title %}
+Template For regular website pages
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5 bg-info p-4 rounded">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="d-flex justify-content-center mb-3">
+                <h1 class="text-center text-white p-3" style="border: 2px solid white; border-radius: 10px;">
+                  {% block content_title %}
+                  Web page Template
+                  {% endblock%}
+                </h1>
+            </div>
+            <div class="card p-4">
+              {% block content %}
+                <h2 class="mb-4">Content</h2>
+              {% endblock%}
+              <div class="card-footer text-muted">
+                Made by Michael Bennie
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

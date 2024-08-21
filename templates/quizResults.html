@@ -1,12 +1,12 @@
-{% extends "baseImports.html" %}
+{% extends "pageTemplate.html" %}
 {% block title %}Quiz Complete!{% endblock %}
-{% block body %}
-<div class="container mt-5 bg-info p-4 rounded">
-    <div class="bg-white p-3 mb-4 rounded" style="border: 2px solid white;">
-        <h1 class="text-center text-info m-0">
-            Quiz Complete!
-        </h1>
-    </div>
+{% block content_title %}
+Quiz Complete!
+{% endblock%}
+
+{% block content %}
+
+
 
     {% set rounded_percentage = "%.0f" % overall_percentage %}
 
@@ -90,7 +90,7 @@
     <div class="text-center mt-4">
         <a href="{{ url_for('questions.question_selector') }}" class="btn btn-success btn-lg btn-block">Continue</a>
     </div>
-</div>
+
 
 <script>
 function playAudio(audioSrc) {

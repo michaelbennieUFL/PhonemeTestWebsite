@@ -110,14 +110,16 @@ class Tester:
         accuracy = max((1 - distance / max_length) * 100, 0)
         return distance, accuracy
 
-    def _select_random_indices(self, matrix, n, valid_columns=[4, 6, 8, 9, 15, 16, 17, 18, 22, 23]):
-        non_zero_indices = [(i, j) for i, row in enumerate(matrix) for j in valid_columns if row[j] != 0]
+    def _select_random_indices(self, matrix, n, valid_columns=[4, 6, 8, 9, 15, 16, 17, 18, 22, 23], include_zeroes=False):
+        useable_indicies = [(i, j) for i, row in enumerate(matrix)
+                            for j in valid_columns
+                            if row[j] != 0 or include_zeroes]
 
-        if len(non_zero_indices) < n:
+        if len(useable_indicies) < n:
             raise ValueError("Non-zero indices are fewer than the number of indices to select")
 
         rows_dict = {}
-        for idx in non_zero_indices:
+        for idx in useable_indicies:
             row_idx = idx[0]
             if row_idx not in rows_dict:
                 rows_dict[row_idx] = []
@@ -146,6 +148,19 @@ class Tester:
             matrix[i][j] = edit_vector[idx] * matrix[i][j]
         return matrix
 
+    def _modify_random_index(self,word_vector):
+        # 隨機選擇一個行和列的索引
+        row = random.randint(0, len(word_vector) - 1)
+        col = random.randint(0, len(word_vector[0]) - 1)
+
+        # 隨機選擇 -1, 0, 或 1
+        new_value = random.choice([-1, 0, 1])
+
+        # 將選定的值賦予矩陣中選中的位置
+        word_vector[row][col] = new_value
+
+        return word_vector
+
     def generate_equally_phonetically_spaced_words(self, word: str, num_words: int, hamming_distance=2) -> list[str]:
         if num_words < 2:
             return [word]
@@ -154,9 +169,16 @@ class Tester:
 
         number_of_values_to_change = hamming_distance // 2 * num_words
         print("word:",word)
-        indicies_to_change = self._select_random_indices(word_vector, number_of_values_to_change)
-
+        try:
+            indicies_to_change = self._select_random_indices(word_vector, number_of_values_to_change)
+        except ValueError:
+            indicies_to_change = self._select_random_indices(word_vector, number_of_values_to_change, include_zeroes=True)
         results = [word]
+
+        #used if there arent enough indicies to change
+        for i, j in indicies_to_change:
+            if word_vector[i][j] == 0:
+                word_vector[i][j] = random.choice([-1, 1])
 
         word_index: int = 0
         while word_index < num_words - 1:
@@ -165,7 +187,14 @@ class Tester:
                              range(number_of_values_to_change)]
 
             word_vector = self._update_ft(word_vector, indicies_to_change, change_vector)
-            results.append(self.ft.vector_list_to_word(word_vector, fuzzy_search=True))
+            generated_word=self.ft.vector_list_to_word(word_vector, fuzzy_search=True)
+            i:int=0
+            while generated_word in results and i<128:
+                modified_word_vector= self._modify_random_index(word_vector)
+                generated_word = self.ft.vector_list_to_word(modified_word_vector, fuzzy_search=True)
+                print(generated_word,"failed",i)
+                i+=1
+            results.append(generated_word)
             word_index += 1
 
         return results
@@ -289,16 +318,14 @@ class Tester:
         return questions
 
 
-
-
 if __name__ == '__main__':
     # 示例使用
     tester = Tester(SingleWordDataHandler(directory="../Data/phoneticData"))
 
     # 設置語言並生成問題
-    selected_languages = ['nan','abk']
+    selected_languages = ['nan', 'abk']
     questions = tester.generate_words_for_question(number=5, selected_languages=selected_languages)
-    print("題目：",questions)
+    print("題目：", questions)
 
     # 獲取多選題
     difficulty = 'medium'
@@ -307,7 +334,7 @@ if __name__ == '__main__':
 
     # 檢查答案
     answer = options[2]
-    score = tester.check_answer( answer, questions[0],)
+    score = tester.check_answer(answer, questions[0])
 
     print(f"選項: {options}")
     print(f"選擇的答案: {answer}")
@@ -337,9 +364,18 @@ if __name__ == '__main__':
         print(f"問題 {i + 1}:")
         print(f"  語言 ID: {question['language_id']}")
         print(f"  語言名稱: {question['language_name']}")
-        print(f"  音頻位置: {question['audio_location']}")
+        print(f"  音頻位置: {question['audio_path']}")
         print(f"  問題類型: {question['question_type']}")
         print(f"  需要填寫的詞: {question['word_to_find']}")
         print(f"  正確答案: {question['correct_answer']}")
-        print(f"  選擇題選項: {question['choices']}")
+        print(f"  選擇題選項: {question['answer_choices']}")
         print("-" * 30)
+
+    # 檢查 generate_equally_phonetically_spaced_words with "ʔ˨"
+    print("Testing generate_equally_phonetically_spaced_words with 'ʔ˨'")
+    test_word = "ʔ˨"
+    spaced_words = tester.generate_equally_phonetically_spaced_words(test_word, num_words=6, hamming_distance=2)
+    print(f"Generated phonetically spaced words for '{test_word}':")
+    for word in spaced_words:
+        print(word)
+
