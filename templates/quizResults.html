@@ -1,0 +1,23 @@
+
+
+{% extends "baseImports.html" %}
+{% block title %}Quiz Results{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center">Quiz Results</h1>
+    <p class="text-center">You answered {{ correct_answers }} out of {{ total_questions }} questions correctly.</p>
+
+    <ul class="list-group">
+        {% for answer in user_answers %}
+        <li class="list-group-item {% if answer.is_correct %}list-group-item-success{% else %}list-group-item-danger{% endif %}">
+            <strong>Question:</strong> {{ answer.question.word_to_find }} <br>
+            <strong>Your Answer:</strong> {{ answer.user_answer }} <br>
+            <strong>Correct Answer:</strong> {{ answer.question.correct_answer }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "baseImports.html" %}
+{% block body %}
+
+<div class="card mb-3">
+  <div class="card-header">
+    <div class="d-flex align-items-center">
+      <button type="button" class="btn btn-outline-primary">X</button>
+      <div class="progress flex-grow-1 ml-3">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%;"></div>
+      </div>
+      <div class="ml-3 d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-heart" viewBox="0 2 16 16">
+          <path d="M8 15s-7-4.534-7-8.5S4.253 1 8 5.236C11.747 1 15 4.5 15 6.5 15 10.466 8 15 8 15z"/>
+        </svg>
+        <span class="text-danger ml-2">{{ hearts }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{% block card_title %}Special title treatment{% endblock %}</h5>
+    <h6 class="card-subtitle text-muted">{% block card_subtitle %}Support card subtitle{% endblock %}</h6>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <!-- Center Button for Regular Speed Audio -->
+    <button type="button" class="btn btn-info btn-lg" id="playNormal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 512"><path fill="white" d="M533.6 32.5C598.5 85.2 640 165.8 640 256s-41.5 170.7-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 301.1 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64v384c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64v-64c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"/></svg>
+    </button>
+
+    <!-- Smaller Button for Slow Speed Audio -->
+    <button type="button" class="btn btn-info btn-sm offset-right" id="playSlow">
+      <span class="material-symbols-outlined icon-center">
+        slow_motion_video
+      </span>
+    </button>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="normalAudio" src="{{ url_for('static', filename=audio_path)}}"></audio>
+    <audio id="slowAudio" src="{{ url_for('static', filename=audio_path)}}"></audio>
+  </div>
+
+  <div class="card-body">
+    {% block answer_section %}
+      <p class="card-text">Answer Section</p>
+    {% endblock %}
+  </div>
+  <div class="card-body">
+    {% block question_section %}
+      <p class="card-text">Question Section</p>
+    {% endblock %}
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      {% block submit_button %}
+      <button type="button" class="btn btn-secondary w-100" disabled>Check</button>
+      {% endblock %}
+    </div>
+    <div class="card-footer text-muted">
+      Made by Michael Bennie
+    </div>
+  </div>
+
+</div>
+
+<script>
+    document.getElementById('playNormal').addEventListener('click', function() {
+        const normalAudio = document.getElementById('normalAudio');
+        normalAudio.playbackRate = 1.0;
+        normalAudio.play();
+    });
+
+    document.getElementById('playSlow').addEventListener('click', function() {
+        const slowAudio = document.getElementById('slowAudio');
+        slowAudio.playbackRate = 0.6;
+        slowAudio.play();
+    });
+</script>
+
+{% endblock %}
+

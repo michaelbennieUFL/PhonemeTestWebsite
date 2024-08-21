@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.top-bar {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.home-button {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.home-button:hover {
+    background-color: grey;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.quiz-settings-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 66%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .quiz-settings-box {
+        max-width: 80%;
+    }
+}
+
+.scrollable-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.language-tile {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.language-tile:hover {
+    transform: scale(1.1);
+    background-color: #f0f0f0;
+}
+
+.language-tile.selected {
+    background-color: #d0d0ff;
+    border-color: #8888ff;
+}
+
+.centered-input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+input#filter {
+    width: 350px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.play-now-button {
+    background-color: blue;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.play-now-button:hover {
+    background-color: darkblue;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 300px;
+    height: 15px;
+    border-radius: 5px;
+    background: blue;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+
+.scrollable-list .language-tile {
+    display: block;
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+    text-align: center;
+}
