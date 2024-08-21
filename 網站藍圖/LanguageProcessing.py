@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify, session, send_from_directory
+from werkzeug.exceptions import BadRequest
 
 from logic.DataHandler import SingleWordDataHandler
 from logic.LanguageQuizManager import Tester
@@ -40,3 +41,33 @@ def generate_quiz():
     print(f'Question Types: {question_types}')
 
     return jsonify(success=True)
+
+@lp_bp.route('/checkanswer', methods=['POST'])
+def check_answer():
+    try:
+        data = request.get_json()
+        correct_answer = data.get('correctAnswer')
+        user_answer = data.get('userAnswer')
+        answertype = data.get('answertype')
+
+        if answertype == "multipleChoice":
+            score = 100.0 if user_answer == correct_answer else 0.0
+
+        elif answertype == "organizeLetter":
+            hamming_distance = sum(1 for u, c in zip(user_answer, correct_answer) if u != c)
+            length_of_correct_list = len(correct_answer)
+            hamming_distance += abs(length_of_correct_list - len(user_answer))
+            score = max(0, 100 - 100 * hamming_distance / length_of_correct_list)
+
+        else:
+            return jsonify({"error": "Unsupported answertype"}), 400
+
+        # Update session with the current question's user answer and score
+        current_question_index = session['current_question']
+        session['quiz_questions'][current_question_index]['user_answer'] = user_answer
+        session['quiz_questions'][current_question_index]['percent_correct'] = score
+        session['current_question'] += 1
+        return jsonify({"score": score})
+
+    except BadRequest:
+        return jsonify({"error": "Invalid input format"}), 400
