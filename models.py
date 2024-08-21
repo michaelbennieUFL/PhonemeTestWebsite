@@ -9,6 +9,7 @@ class UserModel(資料庫.Model):
     password = 資料庫.Column(資料庫.String(63),nullable=False)
     email = 資料庫.Column(資料庫.String(63),nullable=False,unique=True)
     join_time =資料庫.Column(資料庫.DateTime,default=datetime.now())
+    mother_language = 資料庫.Column(資料庫.String(63),nullable=False)
 
 class QuizModel(資料庫.Model):
     __tablename__ = "quiz"
