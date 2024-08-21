@@ -29,7 +29,7 @@
     <h4 class="text-center">問題區</h4>
     <div class="row">
         <div id="questionSection" class="d-flex justify-content-center flex-wrap">
-            {% for letter in letters %}
+            {% for letter in answer_choices %}
             <div class="col-3 col-md-2 mb-3">
                 <button class="btn btn-outline-primary btn-lg letter-box" data-letter="{{ letter }}">{{ letter }}</button>
             </div>
@@ -111,7 +111,7 @@
             const correctAnswer = {{ correct_answer | tojson }};
 
             // 發送答案到伺服器進行檢查
-            fetch(`/checkanswer`, {
+            fetch(`{{ url_for('lp.check_answer') }}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -126,7 +126,7 @@
             .then(data => {
                 let message = '';
                 if (data.score === 100.0) {
-                    message = "<span class='text-success'>&#10004; Good!</span>";
+                    message = "<span class='text-success'>&#10004; Amazing!</span>";
                     submitBtn.classList.remove("btn-success");
                     submitBtn.classList.add("btn-success");
                     continueContainer.style.backgroundColor = "lightgreen";
@@ -158,7 +158,7 @@
                 allLetters.forEach(letter => letter.disabled = true);
 
                 submitBtn.addEventListener('click', function() {
-                    window.location.href = "/next-question";
+                    window.location.href = "{{ url_for('questions.quiz') }}";
                 });
             })
             .catch(error => console.error("Error:", error));
