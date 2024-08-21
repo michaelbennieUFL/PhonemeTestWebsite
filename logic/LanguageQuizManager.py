@@ -211,25 +211,36 @@ class Tester:
             return 0
         return statistics.stdev(answers) if len(answers) > 1 else 0
 
+    def generate_segment_list(self,ipa_word:str)->list[str]:
+        standardized_tone_word = self.ft.standardize_tones(ipa_word)
+        ipa_segments = self.ft.ipa_segs(standardized_tone_word)
+        return ipa_segments
+
     def get_fill_in_the_blank_question(self, question: str, number_of_answers=1, hamming_distance=2) -> list:
-        question_word = question[3]
-        number_of_letters_to_blank = max((len(question_word) -1)// 3+1, 1)
-        start_blank_index = random.randint(0, len(question_word) - number_of_letters_to_blank)
+        ipa_segments=self.generate_segment_list(question[3])
+        number_of_letters_to_blank = max((len(ipa_segments) - 1) // 3 + 1, 1)
+        start_blank_index = random.randint(0, len(ipa_segments) - number_of_letters_to_blank)
         end_index = start_blank_index + number_of_letters_to_blank
 
-        selected_section_to_blank = question_word[start_blank_index:end_index]
+        selected_section_to_blank = ipa_segments[start_blank_index:end_index]
+
+        # 將 `selected_section_to_blank` 合併為一個字串
+        selected_section_to_blank_str = ''.join(selected_section_to_blank)
 
         # 使用切片拼接成新的字串
         question_word_with_blank = (
-                question_word[:start_blank_index] +
+                ''.join(ipa_segments[:start_blank_index]) +
                 " " * number_of_letters_to_blank +
-                question_word[end_index:]
+                ''.join(ipa_segments[end_index:])
         )
 
-        blank_options = self.generate_equally_phonetically_spaced_words(selected_section_to_blank,
-                                                          num_words=number_of_answers,
-                                                          hamming_distance=hamming_distance)
+        blank_options = self.generate_equally_phonetically_spaced_words(
+            selected_section_to_blank_str,  # 這裡使用合併後的字串
+            num_words=number_of_answers,
+            hamming_distance=hamming_distance
+        )
 
+        blank_options=[':'.join(self.generate_segment_list(word)) for word in blank_options]
         return question_word_with_blank, blank_options
 
     def get_organize_sounds_question(self,question: str, number_of_answers=1,hamming_distance = 2)->list:
@@ -240,7 +251,7 @@ class Tester:
         random_indicies = random.sample(range(len(correct_options)), 2)
 
         for index in random_indicies:
-            options+=self.generate_equally_phonetically_spaced_words(correct_options[index], num_words=number_of_answers, hamming_distance=hamming_distance)
+            options.extend(self.generate_equally_phonetically_spaced_words(correct_options[index], num_words=number_of_answers, hamming_distance=hamming_distance))
 
         return correct_options,question_word,options
 
