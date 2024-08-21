@@ -19,7 +19,7 @@ What's the transcription?
 {% block question_section %}
 <div class="container">
     <div class="row">
-        {% for answer in answers %}
+        {% for answer in answer_choices %}
         <div class="col-6 col-md-4 mb-3">
             <input type="radio" class="btn-check" name="btnradio" id="btnradio{{ loop.index }}" value="{{ answer }}" autocomplete="off">
             <label class="btn btn-outline-primary btn-lg w-100 h-100 d-flex align-items-center justify-content-center" for="btnradio{{ loop.index }}">{{ answer }}</label>
@@ -96,64 +96,77 @@ What's the transcription?
             });
         });
 
-        submitBtn.addEventListener("click", function() {
-            if (!isAnswerSelected) {
-                errorToast.show();
-                setTimeout(() => errorToast.hide(), 1000);
-            } else {
-                // 發送請求到 /checkanswer
-                fetch(`/checkanswer?question={{ correct_answer }}&answer=${selectedAnswer}&answertype=multipleChoice`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // 禁用所有選項按鈕
-                        radios.forEach(radio => radio.disabled = true);
+    submitBtn.addEventListener("click", function() {
+        if (!isAnswerSelected) {
+            errorToast.show();
+            setTimeout(() => errorToast.hide(), 1000);
+        } else {
+            // Prepare the data to be sent in the POST request
+            const data = {
+                correctAnswer: "{{ correct_answer }}",
+                userAnswer: selectedAnswer,
+                answertype: "multipleChoice"
+            };
 
-                        if (data.score === 100.0) {
-                            // 正確答案
-                            resultMessage.innerHTML = "<span class='text-success'>&#10004; Correct!</span>";
-                            submitBtn.classList.remove("btn-success");
-                            submitBtn.classList.add("btn-success");
-                            submitBtn.innerHTML = "Continue";
+            // Send POST request to /checkanswer
+            fetch(`{{ url_for('lp.check_answer') }}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                radios.forEach(radio => radio.disabled = true);
 
-                            // 標記正確答案按鈕為綠色
-                            labels.forEach(label => {
-                                if (label.innerText === selectedAnswer) {
-                                    label.classList.add('btn-success');
-                                    label.classList.remove('btn-outline-primary');
-                                }
-                            });
+                if (data.score === 100.0) {
+                    // 正確答案
+                    resultMessage.innerHTML = "<span class='text-success'>&#10004; Correct!</span>";
+                    submitBtn.classList.remove("btn-success");
+                    submitBtn.classList.add("btn-success");
+                    submitBtn.innerHTML = "Continue";
 
-                            continueContainer.style.backgroundColor = "lightgreen";
-                        } else {
-                            // 錯誤答案
-                            resultMessage.innerHTML = "<span class='text-danger'>&#10008; Incorrect!</span>";
-                            submitBtn.classList.remove("btn-success");
-                            submitBtn.classList.add("btn-danger");
-                            submitBtn.innerHTML = "Continue";
-
-                            // 標記錯誤答案按鈕為紅色並顯示正確答案按鈕
-                            labels.forEach(label => {
-                                if (label.innerText === selectedAnswer) {
-                                    label.classList.add('btn-danger');
-                                    label.classList.remove('btn-outline-primary');
-                                }
-                                if (label.innerText === "{{ correct_answer }}") {
-                                    label.classList.add('btn-success');
-                                    label.classList.remove('btn-outline-primary');
-                                }
-                            });
-
-                            continueContainer.style.backgroundColor = "lightcoral";
+                    labels.forEach(label => {
+                        if (label.innerText === selectedAnswer) {
+                            label.classList.add('btn-success');
+                            label.classList.remove('btn-outline-primary');
                         }
+                    });
 
-                        // 添加 "Continue" 按鈕的事件監聽器
-                        submitBtn.addEventListener("click", function() {
-                            window.location.href = "/next-question";
-                        });
-                    })
-                    .catch(error => console.error("Error:", error));
-            }
-        });
+                    continueContainer.style.backgroundColor = "lightgreen";
+                } else {
+                    // 錯誤答案
+                    resultMessage.innerHTML = "<span class='text-danger'>&#10008; Incorrect!</span>";
+                    submitBtn.classList.remove("btn-success");
+                    submitBtn.classList.add("btn-danger");
+                    submitBtn.innerHTML = "Continue";
+
+                    // 標記錯誤答案按鈕為紅色並顯示正確答案按鈕
+                    labels.forEach(label => {
+                        if (label.innerText === selectedAnswer) {
+                            label.classList.add('btn-danger');
+                            label.classList.remove('btn-outline-primary');
+                        }
+                        if (label.innerText === "{{ correct_answer }}") {
+                            label.classList.add('btn-success');
+                            label.classList.remove('btn-outline-primary');
+                        }
+                    });
+
+                    continueContainer.style.backgroundColor = "lightcoral";
+                }
+
+                // 添加 "Continue" 按鈕的事件監聽器
+                submitBtn.addEventListener("click", function() {
+                    window.location.href = "{{ url_for('questions.quiz') }}";
+                });
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    });
+
+
     });
 </script>
 {% endblock %}
