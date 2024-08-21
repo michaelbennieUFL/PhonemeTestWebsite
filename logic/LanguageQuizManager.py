@@ -248,10 +248,10 @@ class Tester:
         correct_options=question_word.split(" ")
         options=correct_options
 
-        random_indicies = random.sample(range(len(correct_options)), 2)
+        random_indicies = random.sample(range(len(correct_options)), min(len(correct_options), 3))
 
         for index in random_indicies:
-            options.extend(self.generate_equally_phonetically_spaced_words(correct_options[index], num_words=number_of_answers, hamming_distance=hamming_distance))
+            options=options+(self.generate_equally_phonetically_spaced_words(correct_options[index], num_words=number_of_answers, hamming_distance=hamming_distance))[1:]
 
         return correct_options,question_word,options
 
