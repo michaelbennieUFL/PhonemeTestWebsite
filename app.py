@@ -1,6 +1,8 @@
 import os
 
 from flask import Flask, render_template
+from werkzeug.sansio import request
+
 import config
 from Extensions import 資料庫
 import models
@@ -23,7 +25,7 @@ migrate = Migrate(網站,資料庫)
 
 @網站.route('/a')
 def index():
-    return render_template('pageTemplate.html')
+    return render_template('login.html')
 
 
 if __name__ == '__main__':
