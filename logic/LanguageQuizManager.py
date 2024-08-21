@@ -213,7 +213,7 @@ class Tester:
 
     def get_fill_in_the_blank_question(self, question: str, number_of_answers=1, hamming_distance=2) -> list:
         question_word = question[3]
-        number_of_letters_to_blank = max(len(question_word) // 3, 2)
+        number_of_letters_to_blank = max((len(question_word) -1)// 3+1, 1)
         start_blank_index = random.randint(0, len(question_word) - number_of_letters_to_blank)
         end_index = start_blank_index + number_of_letters_to_blank
 
@@ -266,11 +266,11 @@ class Tester:
             formatted_question={
                 "language_id" :question[0],
                 "language_name" : question[1],
-                "audio_location": os.path.join( "Data/phoneticData",question[0],"audio",question[2]),
+                "audio_path": os.path.join( "phoneticData",question[0],"audio",question[2]),
                 "question_type" : question_type,
                 "word_to_find": word_to_find,
                 "correct_answer" : correct_answer,
-                "choices": answer_choices,
+                "answer_choices": answer_choices,
                 "user_answer":"",
                 "percent_correct":''
             }
