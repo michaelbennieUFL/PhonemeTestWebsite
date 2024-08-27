@@ -4,7 +4,7 @@
 <div class="card mb-3">
   <div class="card-header">
     <div class="d-flex align-items-center">
-      <button type="button" class="btn btn-outline-primary">X</button>
+      <button type="button" class="btn btn-outline-primary" onclick="window.location.href='{{ url_for('questions.question_selector') }}'">X</button>
       <div class="progress flex-grow-1 ml-3">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%;"></div>
       </div>
