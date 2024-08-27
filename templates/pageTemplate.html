@@ -5,25 +5,76 @@ Template For regular website pages
 {% endblock %}
 
 {% block body %}
-<div class="container mt-5 bg-info p-4 rounded">
-    <div class="row">
+<div class="container mt-5 bg-info  p-4 rounded">
+    <div class="row ">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{{ url_for('questions.question_selector') }}">Transcribe++</a>
+                    <span class="navbar-separator"></span>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.endpoint == 'questions.quiz' %}active{% endif %}" href="{{ url_for('questions.question_selector') }}">Home</a>
+                                <span class="navbar-separator"></span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.endpoint == 'questions.question_selector' %}active{% endif %}" href="{{ url_for('questions.question_selector') }}">Quiz</a>
+                            </li>
+                            {% if current_user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Stats</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                            {% if current_user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ current_user.username }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="{{ url_for('user.dashboard') }}">Dashboard</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('user.logout') }}">Logout</a></li>
+                                </ul>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('user.login') }}">Log In</a>
+                                <span class="navbar-separator"></span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('user.signup') }}">Sign Up</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row mt-3">
         <div class="col-md-8 offset-md-2">
             <div class="d-flex justify-content-center mb-3">
-                <h1 class="text-center text-white p-3" style="border: 2px solid white; border-radius: 10px;">
+                <h1 class="text-center text-white p-3 " style="border: 2px solid white; border-radius: 10px;">
                   {% block content_title %}
                   Web page Template
-                  {% endblock%}
+                  {% endblock %}
                 </h1>
             </div>
             <div class="card p-4">
               {% block content %}
                 <h2 class="mb-4">Content</h2>
-              {% endblock%}
+              {% endblock %}
               <div class="card-footer text-muted">
                 Made by Michael Bennie
               </div>
             </div>
-
         </div>
     </div>
 </div>
