@@ -1,4 +1,8 @@
-from flask import Blueprint, render_template, session, request, redirect, url_for, jsonify
+from flask import Blueprint, render_template, session, request, redirect, url_for, jsonify, flash
+from flask_login import current_user
+
+from Extensions import 資料庫
+from models import QuizModel
 
 questions_bp = Blueprint("questions", __name__, url_prefix="/quiz")
 
@@ -41,14 +45,55 @@ def quiz():
 def quiz_results():
     user_answers = session.get('quiz_questions', [])
     total_questions = len(user_answers)
+
+    if total_questions == 0:
+        return redirect(url_for('questions.question_selector'))
     total_correct = sum(answer['percent_correct'] for answer in user_answers)
 
     # Calculate the overall percentage correct
     overall_percentage = total_correct / total_questions if total_questions > 0 else 0
 
     # Get the incorrect answers
-    incorrect_answers = [answer for answer in user_answers if  answer['percent_correct']<90]
-    correct_answer_amount=total_questions-len(incorrect_answers)
-    return render_template('quizResults.html', user_answers=user_answers, correct_answers=correct_answer_amount, total_questions=total_questions, overall_percentage=overall_percentage, incorrect_answers=incorrect_answers)
+    incorrect_answers = [answer for answer in user_answers if answer['percent_correct'] < 90]
+    correct_answer_amount = total_questions - len(incorrect_answers)
 
 
+    # Save results to the database if the user is logged in
+    if current_user.is_authenticated:
+        # Get the highest quiz_number for the current user
+        last_quiz = 資料庫.session.query(QuizModel).filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).first()
+        if last_quiz:
+            next_quiz_number = last_quiz.quiz_number + 1
+        else:
+            next_quiz_number = 1
+
+        for question_number, answer in enumerate(user_answers, start=1):
+            quiz_result = QuizModel(
+                quiz_number=next_quiz_number,
+                question_number=question_number,
+                question_type=answer['question_type'],
+                language_id=answer['language_id'],
+                word_to_find=str(answer.get('word_to_find', '')),
+                correct_answer=str(answer['correct_answer']),
+                user_answer=str(answer.get('user_answer', '')),
+                percent_correct=answer.get('percent_correct'),
+                user_id=current_user.id
+            )
+            資料庫.session.add(quiz_result)
+        try:
+            資料庫.session.commit()
+            flash("Your progress has been saved!", "success")
+        except Exception as e:
+            資料庫.session.rollback()
+            flash(f"An error occurred while saving your progress: {str(e)}", "danger")
+    else:
+        flash("Log in to save your progress!", "warning")
+
+    return render_template(
+        'quizResults.html',
+        user_answers=user_answers,
+        correct_answers=correct_answer_amount,
+        total_questions=total_questions,
+        overall_percentage=overall_percentage,
+        incorrect_answers=incorrect_answers
+    )
