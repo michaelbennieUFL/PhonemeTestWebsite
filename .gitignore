@@ -1,8 +1,4 @@
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/.gitignore
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/PhonemeTestWebsite.iml
-/.idea/vcs.xml
-/config.py
+/migrations
+.*
+/templates/old
+testing.py

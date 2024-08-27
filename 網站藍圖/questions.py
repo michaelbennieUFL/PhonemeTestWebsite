@@ -2,7 +2,7 @@ from smtpd import program
 
 from flask import Blueprint, render_template, session, request, redirect, url_for, jsonify
 
-questions_bp = Blueprint("questions", __name__, url_prefix="/")
+questions_bp = Blueprint("questions", __name__, url_prefix="/quiz")
 
 @questions_bp.route("/")
 def question_selector():

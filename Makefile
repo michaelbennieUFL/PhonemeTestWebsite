@@ -3,3 +3,7 @@ initFlask:
 	flask db init
 	flask db migrate
 	flask db upgrade
+
+upgradeDatabase:
+	flask db migrate
+	flask db upgrade
