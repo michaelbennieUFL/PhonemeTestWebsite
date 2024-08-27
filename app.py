@@ -4,7 +4,7 @@ from flask import Flask, render_template
 from fontTools.misc.cython import returns
 
 import config
-from Extensions import 資料庫,郵件,緩存,登錄管理器
+from Extensions import 資料庫,郵件,緩存,登錄管理器,翻譯
 from models import UserModel
 from 網站藍圖.questions import questions_bp
 from 網站藍圖.user import user_bp
@@ -20,6 +20,7 @@ migrate = Migrate(網站,資料庫)
 資料庫.init_app(網站)
 郵件.init_app(網站)
 緩存.init_app(網站)
+翻譯.init_app(網站)
 登錄管理器.init_app(網站)
 # TODO: change this to the quiz select screen
 登錄管理器.login_view="user.login"
