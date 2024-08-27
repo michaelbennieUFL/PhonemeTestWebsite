@@ -50,3 +50,9 @@ class RegistrationForm(FlaskForm):
     ], validators=[DataRequired()])
     age = IntegerField('Age (Optional)', validators=[Optional(), NumberRange(min=0)])
     agree_term = BooleanField('I agree to the Terms of Service', validators=[DataRequired()])
+
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember_me = BooleanField('Remember Me')

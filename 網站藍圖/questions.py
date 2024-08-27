@@ -1,5 +1,3 @@
-from smtpd import program
-
 from flask import Blueprint, render_template, session, request, redirect, url_for, jsonify
 
 questions_bp = Blueprint("questions", __name__, url_prefix="/quiz")
