@@ -2,13 +2,14 @@ from flask import Blueprint, render_template, session, request, redirect, url_fo
 from flask_login import current_user
 
 from Extensions import 資料庫
+from TranslationHelpers import get_locale
 from models import QuizModel
 
 questions_bp = Blueprint("questions", __name__, url_prefix="/quiz")
 
 @questions_bp.route("/")
 def question_selector():
-    return render_template("languageSelect.html")
+    return render_template("languageSelect.html",current_locale = get_locale())
 
 @questions_bp.route("/quiz", methods=['GET'])
 def quiz():
@@ -32,12 +33,14 @@ def quiz():
         total_correct_percent = 100
     # Render the appropriate template based on the question type
     percent_done=current_question_index/number_of_questions*100
-    if question_type == 'multiple_choice':
-        return render_template('multipleChoice.html', **current_question, progress=percent_done, hearts=total_correct_percent)
-    elif question_type == 'fill_in_the_blank':
-        return render_template('fillBlank.html', **current_question, progress=percent_done, hearts=total_correct_percent)
-    elif question_type == 'organize_sounds':
-        return render_template('organizeLetters.html', **current_question, progress=percent_done, hearts=total_correct_percent)
+
+    current_locale = get_locale()
+    allowed_question_types = ['multiple_choice', 'fill_in_the_blank', 'organize_sounds']
+
+    if question_type in allowed_question_types:
+        template_name = f"q_{question_type}.html"
+        return render_template(template_name, **current_question, progress=percent_done, hearts=total_correct_percent,
+                               current_locale=current_locale)
     else:
         return "Unknown question type", 400
 

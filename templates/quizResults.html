@@ -1,11 +1,10 @@
 {% extends "pageTemplate.html" %}
-{% block title %}Quiz Complete!{% endblock %}
+{% block title %}{{ _('Quiz Complete!') }}{% endblock %}
 {% block content_title %}
-Quiz Complete!
-{% endblock%}
+{{ _('Quiz Complete!') }}
+{% endblock %}
 
 {% block content %}
-
 
 {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -20,91 +19,87 @@ Quiz Complete!
     {% endif %}
 {% endwith %}
 
+{% set rounded_percentage = "%.0f" % overall_percentage %}
 
-
-    {% set rounded_percentage = "%.0f" % overall_percentage %}
-
-    {% if rounded_percentage|int > 90 %}
-    <div class="card border-success mb-3 mx-auto" style="max-width: 20rem;">
-        <div class="card-header text-success text-center">Amazing!</div>
-        <div class="card-body text-success text-center">
-            <h4 class="card-title">You scored:</h4>
-            <p class="card-text display-4">{{ rounded_percentage }}%</p>
-        </div>
+{% if rounded_percentage|int > 90 %}
+<div class="card border-success mb-3 mx-auto" style="max-width: 20rem;">
+    <div class="card-header text-success text-center">{{ _('Amazing!') }}</div>
+    <div class="card-body text-success text-center">
+        <h4 class="card-title">{{ _('You scored:') }}</h4>
+        <p class="card-text display-4">{{ rounded_percentage }}%</p>
     </div>
-    {% elif rounded_percentage|int > 80 %}
-    <div class="card border-info mb-3 mx-auto" style="max-width: 20rem;">
-        <div class="card-header text-info text-center">Great!</div>
-        <div class="card-body text-info text-center">
-            <h4 class="card-title">You scored:</h4>
-            <p class="card-text display-4">{{ rounded_percentage }}%</p>
-        </div>
+</div>
+{% elif rounded_percentage|int > 80 %}
+<div class="card border-info mb-3 mx-auto" style="max-width: 20rem;">
+    <div class="card-header text-info text-center">{{ _('Great!') }}</div>
+    <div class="card-body text-info text-center">
+        <h4 class="card-title">{{ _('You scored:') }}</h4>
+        <p class="card-text display-4">{{ rounded_percentage }}%</p>
     </div>
-    {% elif rounded_percentage|int > 70 %}
-    <div class="card border-warning mb-3 mx-auto" style="max-width: 20rem;">
-        <div class="card-header text-warning text-center">Good!</div>
-        <div class="card-body text-warning text-center">
-            <h4 class="card-title">You scored:</h4>
-            <p class="card-text display-4">{{ rounded_percentage }}%</p>
-        </div>
+</div>
+{% elif rounded_percentage|int > 70 %}
+<div class="card border-warning mb-3 mx-auto" style="max-width: 20rem;">
+    <div class="card-header text-warning text-center">{{ _('Good!') }}</div>
+    <div class="card-body text-warning text-center">
+        <h4 class="card-title">{{ _('You scored:') }}</h4>
+        <p class="card-text display-4">{{ rounded_percentage }}%</p>
     </div>
-    {% else %}
-    <div class="card border-danger mb-3 mx-auto" style="max-width: 20rem;">
-        <div class="card-header text-danger text-center">Keep Trying!</div>
-        <div class="card-body text-danger text-center">
-            <h4 class="card-title">You scored:</h4>
-            <p class="card-text display-4">{{ rounded_percentage }}%</p>
-        </div>
+</div>
+{% else %}
+<div class="card border-danger mb-3 mx-auto" style="max-width: 20rem;">
+    <div class="card-header text-danger text-center">{{ _('Keep Trying!') }}</div>
+    <div class="card-body text-danger text-center">
+        <h4 class="card-title">{{ _('You scored:') }}</h4>
+        <p class="card-text display-4">{{ rounded_percentage }}%</p>
     </div>
-    {% endif %}
+</div>
+{% endif %}
 
-    <h3 class="mt-4 text-center">Questions You Got Wrong</h3>
-    <div class="accordion" id="accordionExample">
-        {% for answer in incorrect_answers %}
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="heading{{ loop.index }}">
-                <button class="accordion-button {% if not loop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ loop.index }}">
-                    Question {{ loop.index }}
-                </button>
-            </h2>
-            <div id="collapse{{ loop.index }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    {% if answer.question_type == 'fill_in_the_blank' %}
-                        {% set sanitized_word_to_find = answer.word_to_find.replace(' ', '') %}
-                        {% set first_space_index = answer.word_to_find.find(' ') %}
-                        {% if first_space_index != -1 %}
-                            {% set filled_in_answer = sanitized_word_to_find[:first_space_index] ~ '<span class="text-danger"><s>' ~ answer.user_answer.replace(':', '') ~ '</s></span>' ~ sanitized_word_to_find[first_space_index:] %}
-                        {% else %}
-                            {% set filled_in_answer = sanitized_word_to_find %}
-                        {% endif %}
-                        <strong>Your Answer:</strong> {{ filled_in_answer|safe }}
-
-                        {% set filled_in_correct_answer = sanitized_word_to_find[:first_space_index] ~ '<span class="text-success">' ~ answer.correct_answer.replace(':', '') ~ '</span>' ~ sanitized_word_to_find[first_space_index:] %}
-                        <span class="float-end"><strong>Correct Answer:</strong> {{ filled_in_correct_answer|safe }}</span>
-
-                    {% elif answer.question_type == 'organize_sounds' %}
-                        <strong>Your Answer:</strong> <span id="yourAnswer{{ loop.index }}"></span> <br>
-                        <span class="float-end"><strong>Correct Answer:</strong> <span class="text-success">{{ answer.correct_answer|join('') }}</span></span>
+<h3 class="mt-4 text-center">{{ _('Questions You Got Wrong') }}</h3>
+<div class="accordion" id="accordionExample">
+    {% for answer in incorrect_answers %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{ loop.index }}">
+            <button class="accordion-button {% if not loop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ loop.index }}">
+                {{ _('Question') }} {{ loop.index }}
+            </button>
+        </h2>
+        <div id="collapse{{ loop.index }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {% if answer.question_type == 'fill_in_the_blank' %}
+                    {% set sanitized_word_to_find = answer.word_to_find.replace(' ', '') %}
+                    {% set first_space_index = answer.word_to_find.find(' ') %}
+                    {% if first_space_index != -1 %}
+                        {% set filled_in_answer = sanitized_word_to_find[:first_space_index] ~ '<span class="text-danger"><s>' ~ answer.user_answer.replace(':', '') ~ '</s></span>' ~ sanitized_word_to_find[first_space_index:] %}
                     {% else %}
-                        <strong>Your Answer:</strong> <span id="yourAnswer{{ loop.index }}"></span> <br>
-                        <span class="float-end"><strong>Correct Answer:</strong> <span class="text-success">{{ answer.correct_answer.replace(':', '') }}</span></span>
+                        {% set filled_in_answer = sanitized_word_to_find %}
                     {% endif %}
-                    <br>
-                    <button type="button" class="btn btn-outline-primary btn-sm mt-3" onclick="playAudio('{{ url_for('static', filename=answer.audio_path) }}')">Replay Audio</button>
-                    <hr>
-                    <span style="font-size: small;">Question Type: {{ answer.question_type }}</span> <br>
+                    <strong>{{ _('Your Answer:') }}</strong> {{ filled_in_answer|safe }}
 
-                </div>
+                    {% set filled_in_correct_answer = sanitized_word_to_find[:first_space_index] ~ '<span class="text-success">' ~ answer.correct_answer.replace(':', '') ~ '</span>' ~ sanitized_word_to_find[first_space_index:] %}
+                    <span class="float-end"><strong>{{ _('Correct Answer:') }}</strong> {{ filled_in_correct_answer|safe }}</span>
+
+                {% elif answer.question_type == 'organize_sounds' %}
+                    <strong>{{ _('Your Answer:') }}</strong> <span id="yourAnswer{{ loop.index }}"></span> <br>
+                    <span class="float-end"><strong>{{ _('Correct Answer:') }}</strong> <span class="text-success">{{ answer.correct_answer|join('') }}</span></span>
+                {% else %}
+                    <strong>{{ _('Your Answer:') }}</strong> <span id="yourAnswer{{ loop.index }}"></span> <br>
+                    <span class="float-end"><strong>{{ _('Correct Answer:') }}</strong> <span class="text-success">{{ answer.correct_answer.replace(':', '') }}</span></span>
+                {% endif %}
+                <br>
+                <button type="button" class="btn btn-outline-primary btn-sm mt-3" onclick="playAudio('{{ url_for('static', filename=answer.audio_path) }}')">{{ _('Replay Audio') }}</button>
+                <hr>
+                <span style="font-size: small;">{{ _('Question Type:') }} {{ answer.question_type }}</span> <br>
             </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
+</div>
 
-    <!-- Continue Button -->
-    <div class="text-center mt-4">
-        <a href="{{ url_for('questions.question_selector') }}" class="btn btn-success btn-lg btn-block">Continue</a>
-    </div>
-
+<!-- Continue Button -->
+<div class="text-center mt-4">
+    <a href="{{ url_for('questions.question_selector') }}" class="btn btn-success btn-lg btn-block">{{ _('Continue') }}</a>
+</div>
 
 <script>
 function playAudio(audioSrc) {

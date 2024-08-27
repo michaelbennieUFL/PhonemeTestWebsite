@@ -1,20 +1,20 @@
 {% extends "questionsBase.html" %}
 
 {% block title %}
-缺少的聲音是什麼？
+{{ _('What\'s Missing?') }}
 {% endblock %}
 
 {% block card_title %}
-填空！
+{{ _('What Sounds are Missing?') }}
 {% endblock %}
 
 {% block card_subtitle %}
-選擇正確的字母來完成這個單詞。
+{{ _('Fill in the yellow area with the correct phonemes.') }}
 {% endblock %}
 
 {% block answer_section %}
 <div class="text-center">
-    <!-- 顯示有缺失字母的單詞，空白用下划线表示 -->
+    <!-- Display the word with missing letters, using underscores for blanks -->
     <p id="wordWithBlank" class="fs-1 fw-bold">
         {% for char in word_to_find %}
             {% if char == ' ' %}
@@ -63,9 +63,9 @@
     }
     .underline-space {
         text-decoration: underline;
-        text-decoration-color: #e6e600; /* 設置下划线顏色為黃色 */
-        color: transparent; /* 確保空白位置顯示為空 */
-        width: 6ch; /* 增加空白的寬度，提供足夠空間 */
+        text-decoration-color: #e6e600; /* Yellow underline */
+        color: transparent; /* Ensure space appears blank */
+        width: 6ch; /* Increase width of blank space */
         display: inline-block;
         text-align: center;
     }
@@ -73,23 +73,23 @@
         color: #e6e600;
         font-weight: bold;
         text-decoration: underline;
-        text-decoration-color: #e6e600; /* 設置下划线顏色為黃色 */
+        text-decoration-color: #e6e600; /* Yellow underline */
         display: inline-block;
         width: 3ch;
         text-align: center;
     }
     .correct-letter {
-        color: green; /* 正確答案時變為綠色 */
+        color: green; /* Green for correct answers */
         text-decoration-color: green;
     }
     .incorrect-letter {
-        color: red; /* 錯誤答案時變為紅色 */
-        text-decoration: line-through; /* 在字母中間添加橫線 */
+        color: red; /* Red for incorrect answers */
+        text-decoration: line-through; /* Strikethrough incorrect letters */
         display: inline-block;
-        margin-right: 10px; /* 增加右邊的間距 */
+        margin-right: 10px; /* Add spacing */
     }
     .correct-answer {
-        color: green; /* 正確答案顯示為綠色 */
+        color: green; /* Display correct answer in green */
         display: inline-block;
         text-decoration: underline;
         text-decoration-color: green;
@@ -101,21 +101,20 @@
 </style>
 {% endblock %}
 
-
 {% block submit_button %}
 <div id="resultMessage" class="result-message"></div>
 
 <div id="continueContainer" class="continue-container">
-    <button type="button" class="btn btn-secondary disabled w-100" id="submitBtn" disabled>檢查</button>
+    <button type="button" class="btn btn-secondary disabled w-100" id="submitBtn" disabled>{{ _('Check') }}</button>
 </div>
 
 <div class="toast-container" aria-live="polite" aria-atomic="true">
     <div id="errorToast" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
             <div class="toast-body">
-                你需要選擇一個答案後才能提交！
+                {{ _('You must select one answer to continue!') }}
             </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="{{ _('Close') }}"></button>
         </div>
     </div>
 </div>
@@ -128,24 +127,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
     const resultMessage = document.getElementById('resultMessage');
     const continueContainer = document.getElementById('continueContainer');
-    const highlightedSpaces = document.querySelectorAll('.underline-space');  // Get all blank spaces
+    const highlightedSpaces = document.querySelectorAll('.underline-space');
 
     let isAnswerSelected = false;
     let selectedAnswer = "";
 
+    // Handle answer selection
     radios.forEach(radio => {
         radio.addEventListener("change", function() {
             isAnswerSelected = true;
             selectedAnswer = this.value;
             submitBtn.disabled = false;
-            submitBtn.classList.remove("btn-secondary");
-            submitBtn.classList.remove("disabled");
+            submitBtn.classList.remove("btn-secondary", "disabled");
             submitBtn.classList.add("btn-success");
 
-            // Split the selected answer by colon (:)
             const selectedCharacters = selectedAnswer.split(':');
 
-            // Fill each blank space with the corresponding character from the guessed answer
             highlightedSpaces.forEach((space, index) => {
                 if (index < selectedCharacters.length) {
                     space.innerHTML = `<span class="highlighted-letter">${selectedCharacters[index]}</span>`;
@@ -154,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // Handle submit button click
     submitBtn.addEventListener("click", function() {
         if (!isAnswerSelected) {
             errorToast.show();
@@ -177,10 +175,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 radios.forEach(radio => radio.disabled = true);
 
                 if (data.score === 100.0) {
-                    resultMessage.innerHTML = "<span class='text-success'>&#10004; Correct!</span>";
+                    resultMessage.innerHTML = "<span class='text-success'>&#10004; {{ _('Correct!') }}</span>";
                     submitBtn.classList.remove("btn-success");
                     submitBtn.classList.add("btn-success");
-                    submitBtn.innerHTML = "Continue";
+                    submitBtn.innerHTML = "{{ _('Continue') }}";
                     labels.forEach(label => {
                         if (label.innerText === selectedAnswer) {
                             label.classList.add('btn-success');
@@ -189,10 +187,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     });
                     continueContainer.style.backgroundColor = "lightgreen";
                 } else {
-                    resultMessage.innerHTML = "<span class='text-danger'>&#10008; Incorrect!</span>";
+                    resultMessage.innerHTML = "<span class='text-danger'>&#10008; {{ _('Incorrect!') }}</span>";
                     submitBtn.classList.remove("btn-success");
                     submitBtn.classList.add("btn-danger");
-                    submitBtn.innerHTML = "Continue";
+                    submitBtn.innerHTML = "{{ _('Continue') }}";
                     labels.forEach(label => {
                         if (label.innerText === selectedAnswer) {
                             label.classList.add('btn-danger');
@@ -206,7 +204,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     continueContainer.style.backgroundColor = "lightcoral";
                 }
 
-                // Navigate to the next question
                 submitBtn.addEventListener("click", function() {
                     window.location.href = "{{ url_for('questions.quiz') }}";
                 });
@@ -215,9 +212,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
-
-
-
 </script>
 {% endblock %}

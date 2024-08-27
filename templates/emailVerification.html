@@ -74,59 +74,54 @@
   <!--Subject: Login Verification Required for Your [App Name] Account-->
   <div class="container">
     <div class="header">
-      <a>Signup Captcha for Phonemic Practice++</a>
+      <a>{{ _('Signup Captcha for Phonemic Practice++') }}</a>
     </div>
     <br />
-    <strong>Dear {{Username}},</strong>
+    <strong>{{ _('Dear') }} {{ Username }},</strong>
     <p>
-      We have received a login request for your Phonemic Practice++ account. For
-      security purposes, please verify your identity by providing the
-      following One-Time Password (OTP).
+      {{ _('We have received a login request for your Phonemic Practice++ account. For security purposes, please verify your identity by providing the following One-Time Password (OTP).') }}
       <br />
-      <b>Your One-Time Password (OTP) verification code is:</b>
+      <b>{{ _('Your One-Time Password (OTP) verification code is:') }}</b>
     </p>
-    <h2 class="otp">{{OTP_PASSWORD}}</h2>
+    <h2 class="otp">{{ OTP_PASSWORD }}</h2>
     <p style="font-size: 0.9em">
-      <strong>The One-Time Password (OTP) is valid for 5 minutes.</strong>
+      <strong>{{ _('The One-Time Password (OTP) is valid for 5 minutes.') }}</strong>
       <br />
       <br />
-      If you did not initiate this login request, please disregard this
-      message. Please ensure the confidentiality of your OTP and do not share
-      it with anyone.<br />
-      <strong>Do not forward or give this code to anyone.</strong>
+      {{ _('If you did not initiate this login request, please disregard this message. Please ensure the confidentiality of your OTP and do not share it with anyone.') }}<br />
+      <strong>{{ _('Do not forward or give this code to anyone.') }}</strong>
       <br />
       <br />
-      <strong>Thank you for using Phonemic Practice++.</strong>
+      <strong>{{ _('Thank you for using Phonemic Practice++.') }}</strong>
       <br />
       <br />
-      Best regards,
+      {{ _('Best regards,') }}
       <br />
-      <strong>The Phonemic Practice ++ Team</strong>
+      <strong>{{ _('The Phonemic Practice++ Team') }}</strong>
     </p>
 
     <hr style="border: none; border-top: 0.5px solid #131111" />
     <div class="footer">
-      <p>This email can't receive replies.</p>
+      <p>{{ _('This email can\'t receive replies.') }}</p>
       <p>
-        For more information about Phonemic Practice ++ and your account, visit
-        <strong>[Website Name]</strong>
+        {{ _('For more information about Phonemic Practice++ and your account, visit') }}
+        <strong>{{ _('[Website Name]') }}</strong>
       </p>
     </div>
   </div>
   <div style="text-align: center">
     <div class="email-info">
       <span>
-        This email was sent to
-        <a href="mailto:{Email Adress}">{{TARGET_ADRESS}}</a>
+        {{ _('This email was sent to') }}
+        <a href="mailto:{{ TARGET_ADRESS }}">{{ TARGET_ADRESS }}</a>
       </span>
     </div>
 
     <div class="email-info">
-      &copy; 2024 Michael Bennie. All rights
-      reserved.
+      &copy; 2024 {{ _('Michael Bennie') }}. {{ _('All rights reserved.') }}
     </div>
   </div>
 </body>
-<!--    This template is made Redwan one from Ocoxe. -->
+<!-- This template is made by Redwan from Ocoxe. -->
 <!-- https://www.ocoxe.com -->
 </html>

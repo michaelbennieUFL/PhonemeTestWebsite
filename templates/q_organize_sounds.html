@@ -1,20 +1,20 @@
 {% extends "questionsBase.html" %}
 
 {% block title %}
-組織字母
+{{ _('Order the phonemes!') }}
 {% endblock %}
 
 {% block card_title %}
-組織字母來形成正確的單詞
+{{ _('Organize the phonemes!') }}
 {% endblock %}
 
 {% block card_subtitle %}
-點擊字母組合並將它們放置在正確的位置。
+{{ _('Click on the set of sounds on the bottom to move them from the question zone to the response zone.') }}
 {% endblock %}
 
 {% block answer_section %}
 <div class="text-center">
-    <h4>答案區</h4>
+    <h4>{{ _('Response Zone:') }}</h4>
     <div id="answerContainer" class="position-relative mb-4">
         <hr class="position-absolute w-100" style="top: 50%; transform: translateY(-50%);">
         <div id="answerSection" class="d-flex justify-content-center align-items-center">
@@ -26,7 +26,7 @@
 
 {% block question_section %}
 <div class="container">
-    <h4 class="text-center">問題區</h4>
+    <h4 class="text-center">{{ _('Question Zone') }}</h4>
     <div class="row">
         <div id="questionSection" class="d-flex justify-content-center flex-wrap">
             {% for letter in answer_choices %}
@@ -63,7 +63,7 @@
 <div id="resultMessage" class="result-message"></div>
 
 <div id="continueContainer" class="continue-container">
-    <button type="button" class="btn btn-secondary w-100" id="submitBtn" disabled>檢查</button>
+    <button type="button" class="btn btn-secondary w-100" id="submitBtn" disabled>{{ _('Check') }}</button>
 </div>
 
 <script>
@@ -85,7 +85,7 @@
             }
         }
 
-        // 當點擊問題區塊中的字母時，將其移動到答案區塊
+        // Move letter from question zone to answer zone
         questionSection.addEventListener('click', function(event) {
             if (event.target.classList.contains('letter-box')) {
                 const letterBox = event.target;
@@ -95,7 +95,7 @@
             }
         });
 
-        // 當點擊答案區塊中的字母時，將其移回問題區塊
+        // Move letter back from answer zone to question zone
         answerSection.addEventListener('click', function(event) {
             if (event.target.classList.contains('letter-box')) {
                 const letterBox = event.target;
@@ -105,12 +105,11 @@
             }
         });
 
-        // 檢查答案按鈕
+        // Check the answer
         submitBtn.addEventListener('click', function() {
             const userAnswer = Array.from(answerSection.children).map(child => child.textContent);
             const correctAnswer = {{ correct_answer | tojson }};
 
-            // 發送答案到伺服器進行檢查
             fetch(`{{ url_for('lp.check_answer') }}`, {
                 method: 'POST',
                 headers: {
@@ -126,34 +125,34 @@
             .then(data => {
                 let message = '';
                 if (data.score === 100.0) {
-                    message = "<span class='text-success'>&#10004; Amazing!</span>";
+                    message = "<span class='text-success'>&#10004; {{ _('Amazing!') }}</span>";
                     submitBtn.classList.remove("btn-success");
                     submitBtn.classList.add("btn-success");
                     continueContainer.style.backgroundColor = "lightgreen";
                 } else if (data.score > 79.0) {
-                    message = "<span class='text-success'>&#10004; Good!</span>";
+                    message = "<span class='text-success'>&#10004; {{ _('Good!') }}</span>";
                     submitBtn.classList.remove("btn-success");
                     submitBtn.classList.add("btn-success");
                     continueContainer.style.backgroundColor = "lightgreen";
-                    message += ` 正確答案: ${correctAnswer.join('')}`;
+                    message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
                 } else if (data.score > 55.0) {
-                    message = "<span class='text-warning'>&#126; Ok!</span>";
+                    message = "<span class='text-warning'>&#126; {{ _('Ok!') }}</span>";
                     submitBtn.classList.remove("btn-success");
                     submitBtn.classList.add("btn-warning");
                     continueContainer.style.backgroundColor = "lightyellow";
-                    message += ` 正確答案: ${correctAnswer.join('')}`;
+                    message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
                 } else {
-                    message = "<span class='text-danger'>&#10008; Wrong!</span>";
+                    message = "<span class='text-danger'>&#10008; {{ _('Wrong!') }}</span>";
                     submitBtn.classList.remove("btn-success");
                     submitBtn.classList.add("btn-danger");
                     continueContainer.style.backgroundColor = "lightcoral";
-                    message += ` 正確答案: ${correctAnswer.join('')}`;
+                    message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
                 }
 
                 resultMessage.innerHTML = message;
-                submitBtn.innerHTML = "繼續";
+                submitBtn.innerHTML = "{{ _('Continue') }}";
 
-                // 禁用字母按鈕
+                // Disable all letter buttons
                 const allLetters = document.querySelectorAll('.letter-box');
                 allLetters.forEach(letter => letter.disabled = true);
 

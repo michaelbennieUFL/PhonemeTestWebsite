@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, render_template
+from flask_babel import gettext
 from fontTools.misc.cython import returns
 
 import config
@@ -11,6 +12,7 @@ from 網站藍圖.user import user_bp
 from 網站藍圖.LanguageProcessing import lp_bp
 from 網站藍圖.Authenticator import auth_bp
 from flask_migrate import Migrate
+from TranslationHelpers import get_locale, get_timezone, supported_languages
 
 網站 = Flask(__name__)
 網站.config.from_object(config) #綁定配置文件
@@ -20,8 +22,25 @@ migrate = Migrate(網站,資料庫)
 資料庫.init_app(網站)
 郵件.init_app(網站)
 緩存.init_app(網站)
-翻譯.init_app(網站)
+翻譯.init_app(網站, locale_selector=get_locale, timezone_selector=get_timezone)
 登錄管理器.init_app(網站)
+
+
+# Inject gettext into templates
+@網站.context_processor
+def inject_babel():
+    return dict(_=gettext)
+
+@網站.context_processor
+def inject_locale():
+    return {'get_locale': get_locale}
+
+
+@網站.context_processor
+def inject_supported_languages():
+    return dict(supported_languages=supported_languages)
+
+
 # TODO: change this to the quiz select screen
 登錄管理器.login_view="user.login"
 
@@ -39,4 +58,4 @@ def load_user(user_id):
 
 
 if __name__ == '__main__':
-    網站.run()
+    網站.run(ssl_context='adhoc')

@@ -4,7 +4,7 @@
 <div class="card mb-3">
   <div class="card-header">
     <div class="d-flex align-items-center">
-      <button type="button" class="btn btn-outline-primary" onclick="window.location.href='{{ url_for('questions.question_selector') }}'">X</button>
+      <button type="button" class="btn btn-outline-primary" onclick="window.location.href='{{ url_for('questions.question_selector') }}'">{{ _('X') }}</button>
       <div class="progress flex-grow-1 ml-3">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%;"></div>
       </div>
@@ -18,8 +18,8 @@
   </div>
 
   <div class="card-body">
-    <h5 class="card-title">{% block card_title %}Special title treatment{% endblock %}</h5>
-    <h6 class="card-subtitle text-muted">{% block card_subtitle %}Support card subtitle{% endblock %}</h6>
+    <h5 class="card-title">{% block card_title %}Sample title treatment{% endblock %}</h5>
+    <h6 class="card-subtitle text-muted">{% block card_subtitle %}Sample card subtitle{% endblock %}</h6>
   </div>
 
   <div class="d-flex justify-content-center">
@@ -42,23 +42,23 @@
 
   <div class="card-body">
     {% block answer_section %}
-      <p class="card-text">Answer Section</p>
+      <p class="card-text">Sample Answer Section</p>
     {% endblock %}
   </div>
   <div class="card-body">
     {% block question_section %}
-      <p class="card-text">Question Section</p>
+      <p class="card-text">Sample Question Section</p>
     {% endblock %}
   </div>
 
   <div class="card">
     <div class="card-body">
       {% block submit_button %}
-      <button type="button" class="btn btn-secondary w-100" disabled>Check</button>
+      <button type="button" class="btn btn-secondary w-100" disabled>{{ _('Check') }}</button>
       {% endblock %}
     </div>
     <div class="card-footer text-muted">
-      Made by Michael Bennie
+      {{ _('Made by Michael Bennie') }}
     </div>
   </div>
 
@@ -79,4 +79,3 @@
 </script>
 
 {% endblock %}
-

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, flash, jsonify
+from flask import Blueprint, render_template, redirect, url_for, flash, jsonify, request, session
 from Extensions import 資料庫, 緩存
 from models import UserModel
 from Forms import RegistrationForm, LoginForm
@@ -74,3 +74,9 @@ def logout():
 @login_required
 def dashboard():
     return f"Hello, {current_user.username}! Welcome to your dashboard."
+
+@user_bp.route('/updateLang')
+def updateLanguage():
+    lang = request.args.get('lang', 'en')
+    session['lang'] = lang
+    return redirect(request.referrer or url_for('user.dashboard'))

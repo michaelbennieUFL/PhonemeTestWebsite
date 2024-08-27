@@ -21,10 +21,11 @@ babelInit:
 
 # Update command for updating .po files
 babelUpdate:
-	@for lang in $(LANGUAGES); do \
+	pybabel extract -F babel.cfg -o messages.pot .
+	for lang in $(LANGUAGES); do \
 		pybabel update -d $(TRANSLATIONS_DIR) -i $(POT_FILE) -l $$lang; \
 	done
-	@pybabel compile -d $(TRANSLATIONS_DIR)
+	pybabel compile -d $(TRANSLATIONS_DIR)
 
 
 initFlask:

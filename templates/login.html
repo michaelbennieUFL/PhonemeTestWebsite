@@ -1,11 +1,11 @@
 {% extends "pageTemplate.html" %}
 
 {% block title %}
-Log In
+{{ _('Log In') }}
 {% endblock %}
 
 {% block content_title %}
-Log In
+{{ _('Log In') }}
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@ Log In
 
                 <div class="mb-3">
                     {{ form.email.label(class="form-label") }}
-                    {{ form.email(class="form-control", placeholder="Email") }}
+                    {{ form.email(class="form-control", placeholder=_('Email')) }}
                     {% if form.email.errors %}
                         <ul class="errors">
                         {% for error in form.email.errors %}
@@ -29,7 +29,7 @@ Log In
 
                 <div class="mb-3">
                     {{ form.password.label(class="form-label") }}
-                    {{ form.password(class="form-control", placeholder="Password") }}
+                    {{ form.password(class="form-control", placeholder=_('Password')) }}
                     {% if form.password.errors %}
                         <ul class="errors">
                         {% for error in form.password.errors %}
@@ -45,11 +45,11 @@ Log In
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Log In</button>
+                    <button type="submit" class="btn btn-primary">{{ _('Log In') }}</button>
                 </div>
             </form>
             <p class="mt-3 text-center">
-                Don't have an account? <a href="{{ url_for('user.signup') }}" class="text-decoration-none">Sign up</a>
+                {{ _("Don't have an account?") }} <a href="{{ url_for('user.signup') }}" class="text-decoration-none">{{ _('Sign up') }}</a>
             </p>
         </div>
     </div>
