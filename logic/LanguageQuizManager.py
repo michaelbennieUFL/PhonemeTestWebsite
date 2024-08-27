@@ -34,8 +34,17 @@ class Tester:
                 full_name = lang_obj.name
             except InvalidLanguageValue:
                 full_name = "Unknown"
+
+                print("failed unknown: ",lang)
             except DeprecatedLanguageValue:
-                full_name = lang_obj.name
+
+                if lang == "ajp":
+                    # TODO: merge ajp with apc according to https://iso639-3.sil.org/sites/iso639-3/files/change_requests/2022/2022-006.pdf
+                    full_name="South Levantine Arabic"
+                else:
+                    print("failed: ", lang, lang_obj)
+                    full_name = lang_obj.name
+
             full_names.append((lang, full_name))
         return full_names
 

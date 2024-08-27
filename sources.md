@@ -7,3 +7,5 @@ https://upload.wikimedia.org/wikipedia/commons/1/1d/Speech_bubbles_clipart.png e
 
 
 https://github.com/Redwiat/otp-verification-email-template  MIT license 
+
+2007. The UCLA Phonetics Lab Archive. Los Angeles, CA: UCLA Department of Linguistics. http://archive.phonetics.ucla.edu/.
