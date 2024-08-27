@@ -4,3 +4,6 @@ https://colorlib.com/wp/template/colorlib-regform-7/  CC BY 3.0
 
 
 https://upload.wikimedia.org/wikipedia/commons/1/1d/Speech_bubbles_clipart.png e Creative Commons Attribution-Share Alike 4.0 International 
+
+
+https://github.com/Redwiat/otp-verification-email-template  MIT license 
