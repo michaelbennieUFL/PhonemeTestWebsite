@@ -1,1 +1,96 @@
 {% extends "pageTemplate.html" %}
+
+{% block content_title %}
+{{ _('Dashboard') }}
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card border-dark mb-4">
+            <div class="card-header">{{ _('User Information') }}</div>
+            <div class="card-body">
+                <p><strong>{{ _('Name:') }}</strong> {{ current_user.username }}</p>
+                <p><strong>{{ _('Date:') }}</strong> {{ date }}</p>
+                <hr>
+                <form action="{{ url_for('user.updateLanguage') }}" method="get">
+                    <div class="mb-3">
+                        <label for="displayLang" class="form-label">{{ _('Display Language') }}</label>
+                        <select class="form-select" id="displayLang" name="lang">
+                            {% for lang, flag in supported_languages.items() %}
+                                <option value="{{ lang }}" {% if lang == session.get('lang', 'en') %}selected{% endif %}>{{ flag }} {{ lang.upper() }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nativeLang" class="form-label">{{ _('Native Language') }}</label>
+                        <select class="form-select" id="nativeLang" name="native_lang">
+                            {% for lang, flag in supported_languages.items() %}
+                                <option value="{{ lang }}" {% if lang == current_user.mother_language %}selected{% endif %}>{{ flag }} {{ lang.upper() }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">{{ _('Update Preferences') }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card border-dark mb-4">
+            <div class="card-header">{{ _('Recent Test Accuracy') }}</div>
+            <div class="card-body">
+                <canvas id="accuracyChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border-dark">
+    <div class="card-header">{{ _('Recent Errors') }}</div>
+    <div class="card-body">
+        {% if errors %}
+            <ul class="list-group">
+                {% for error in errors %}
+                    <li class="list-group-item">
+                        <strong>{{ _('Question') }}:</strong> {{ error.question_number }} <br>
+                        <strong>{{ _('Your Answer') }}:</strong> {{ error.user_answer }} <br>
+                        <strong>{{ _('Correct Answer') }}:</strong> {{ error.correct_answer }} <br>
+                        <strong>{{ _('Accuracy') }}:</strong> {{ error.percent_correct }}%
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ _('No errors to display.') }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var ctx = document.getElementById('accuracyChart').getContext('2d');
+        var accuracyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ labels | safe }},
+                datasets: [{
+                    label: '{{ _('Accuracy') }}',
+                    data: {{ data | safe }},
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

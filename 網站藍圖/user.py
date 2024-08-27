@@ -1,6 +1,8 @@
+from datetime import datetime
+
 from flask import Blueprint, render_template, redirect, url_for, flash, jsonify, request, session
 from Extensions import 資料庫, 緩存
-from models import UserModel
+from models import UserModel, QuizModel
 from Forms import RegistrationForm, LoginForm
 from flask_login import login_user, login_required, logout_user, current_user
 
@@ -73,7 +75,21 @@ def logout():
 @user_bp.route("/dashboard")
 @login_required
 def dashboard():
-    return f"Hello, {current_user.username}! Welcome to your dashboard."
+    # Get the last 5 quiz results
+    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(5).all()
+
+    # Prepare data for the chart
+    labels = [f"Test {test.quiz_number}" for test in recent_tests]
+    data = [test.percent_correct for test in recent_tests]
+
+    # Get some errors
+    errors = QuizModel.query.filter_by(user_id=current_user.id).filter(QuizModel.percent_correct < 100).order_by(QuizModel.quiz_number.desc()).limit(5).all()
+
+    return render_template("dashboard.html",
+                           labels=labels,
+                           data=data,
+                           errors=errors,
+                           date=datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"))
 
 @user_bp.route('/updateLang')
 def updateLanguage():

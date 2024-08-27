@@ -1,7 +1,7 @@
 {% extends "baseImports.html" %}
 
 {% block title %}
-Template For Regular Website Pages
+{{ _('Dashboard') }}
 {% endblock %}
 
 {% block body %}
@@ -26,7 +26,7 @@ Template For Regular Website Pages
                             </li>
                             {% if current_user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ _('Stats') }}</a>
+                                <a class="nav-link" href="{{ url_for('user.dashboard') }}">{{ _('Dashboard') }}</a>
                             </li>
                             {% endif %}
                         </ul>
@@ -79,7 +79,7 @@ Template For Regular Website Pages
             <div class="d-flex justify-content-center mb-3">
                 <h1 class="text-center text-white p-3" style="border: 2px solid white; border-radius: 10px;">
                   {% block content_title %}
-                  Web page Template
+                  {{ _('Dashboard') }}
                   {% endblock %}
                 </h1>
             </div>
