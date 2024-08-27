@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
             alert.classList.add('fade');
             setTimeout(() => {
                 alert.remove();
-            }, 100);
-        }, 5000);
+            }, 400);
+        }, 2700);
     });
 });
