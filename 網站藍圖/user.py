@@ -42,6 +42,7 @@ def signup():
             return redirect(url_for("user.dashboard"))  # 假設你有一個儀表板頁面
         except Exception as e:
             資料庫.session.rollback()
+            print(e)
             flash(f"An error occurred: {str(e)}", "danger")
             return render_template("register.html", form=form)
     return render_template("register.html", form=form)

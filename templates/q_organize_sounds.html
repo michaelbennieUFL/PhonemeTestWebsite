@@ -105,63 +105,66 @@
             }
         });
 
-        // Check the answer
+submitBtn.addEventListener('click', function handleSubmit() {
+    const userAnswer = Array.from(answerSection.children).map(child => child.textContent);
+    const correctAnswer = {{ correct_answer | tojson }};
+
+    fetch(`{{ url_for('lp.check_answer') }}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            correctAnswer: correctAnswer,
+            userAnswer: userAnswer,
+            answertype: 'organizeLetter'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        let message = '';
+        if (data.score === 100.0) {
+            message = "<span class='text-success'>&#10004; {{ _('Amazing!') }}</span>";
+            submitBtn.classList.remove("btn-success");
+            submitBtn.classList.add("btn-success");
+            continueContainer.style.backgroundColor = "lightgreen";
+        } else if (data.score > 79.0) {
+            message = "<span class='text-success'>&#10004; {{ _('Good!') }}</span>";
+            submitBtn.classList.remove("btn-success");
+            submitBtn.classList.add("btn-success");
+            continueContainer.style.backgroundColor = "lightgreen";
+            message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
+        } else if (data.score > 55.0) {
+            message = "<span class='text-warning'>&#126; {{ _('Ok!') }}</span>";
+            submitBtn.classList.remove("btn-success");
+            submitBtn.classList.add("btn-warning");
+            continueContainer.style.backgroundColor = "lightyellow";
+            message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
+        } else {
+            message = "<span class='text-danger'>&#10008; {{ _('Wrong!') }}</span>";
+            submitBtn.classList.remove("btn-success");
+            submitBtn.classList.add("btn-danger");
+            continueContainer.style.backgroundColor = "lightcoral";
+            message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
+        }
+
+        resultMessage.innerHTML = message;
+        submitBtn.innerHTML = "{{ _('Continue') }}";
+
+        // Disable all letter buttons
+        const allLetters = document.querySelectorAll('.letter-box');
+        allLetters.forEach(letter => letter.disabled = true);
+
+        // 移除事件監聽器以防止再次觸發
+        submitBtn.removeEventListener('click', handleSubmit);
+
+        // 新的點擊事件來進行頁面跳轉
         submitBtn.addEventListener('click', function() {
-            const userAnswer = Array.from(answerSection.children).map(child => child.textContent);
-            const correctAnswer = {{ correct_answer | tojson }};
-
-            fetch(`{{ url_for('lp.check_answer') }}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    correctAnswer: correctAnswer,
-                    userAnswer: userAnswer,
-                    answertype: 'organizeLetter'
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                let message = '';
-                if (data.score === 100.0) {
-                    message = "<span class='text-success'>&#10004; {{ _('Amazing!') }}</span>";
-                    submitBtn.classList.remove("btn-success");
-                    submitBtn.classList.add("btn-success");
-                    continueContainer.style.backgroundColor = "lightgreen";
-                } else if (data.score > 79.0) {
-                    message = "<span class='text-success'>&#10004; {{ _('Good!') }}</span>";
-                    submitBtn.classList.remove("btn-success");
-                    submitBtn.classList.add("btn-success");
-                    continueContainer.style.backgroundColor = "lightgreen";
-                    message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
-                } else if (data.score > 55.0) {
-                    message = "<span class='text-warning'>&#126; {{ _('Ok!') }}</span>";
-                    submitBtn.classList.remove("btn-success");
-                    submitBtn.classList.add("btn-warning");
-                    continueContainer.style.backgroundColor = "lightyellow";
-                    message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
-                } else {
-                    message = "<span class='text-danger'>&#10008; {{ _('Wrong!') }}</span>";
-                    submitBtn.classList.remove("btn-success");
-                    submitBtn.classList.add("btn-danger");
-                    continueContainer.style.backgroundColor = "lightcoral";
-                    message += ` {{ _('Correct Answer:') }} ${correctAnswer.join('')}`;
-                }
-
-                resultMessage.innerHTML = message;
-                submitBtn.innerHTML = "{{ _('Continue') }}";
-
-                // Disable all letter buttons
-                const allLetters = document.querySelectorAll('.letter-box');
-                allLetters.forEach(letter => letter.disabled = true);
-
-                submitBtn.addEventListener('click', function() {
-                    window.location.href = "{{ url_for('questions.quiz') }}";
-                });
-            })
-            .catch(error => console.error("Error:", error));
+            window.location.href = "{{ url_for('questions.quiz') }}";
         });
+    })
+    .catch(error => console.error("Error:", error));
+}, { once: true});
     });
 </script>
 {% endblock %}

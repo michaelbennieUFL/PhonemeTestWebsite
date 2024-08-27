@@ -68,6 +68,9 @@ def check_answer():
 
         # Update session with the current question's user answer and score
         current_question_index = session['current_question']
+        print("index", current_question_index, answertype, data)
+        if session['quiz_questions'][current_question_index]['correct_answer'] != correct_answer:
+            return jsonify({"error": "Invalid answer"}), 400
         session['quiz_questions'][current_question_index]['user_answer'] = user_answer
         session['quiz_questions'][current_question_index]['percent_correct'] = score
         session['current_question'] += 1
