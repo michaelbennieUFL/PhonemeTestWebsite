@@ -56,11 +56,3 @@ def get_captcha():
         return jsonify({"code": 500, "message": "Message was unable to be sent", "data": {"details": str(e)}}), 500
 
 
-@auth_bp.route("/captcha/check")
-def check_captcha():
-    target_email = request.args.get("email")
-    captcha= 緩存.get("emailCaptcha"+target_email)
-    if not captcha:
-        return "失敗了"
-    return captcha
-
