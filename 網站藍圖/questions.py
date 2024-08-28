@@ -80,7 +80,9 @@ def quiz_results():
                 correct_answer=str(answer['correct_answer']),
                 user_answer=str(answer.get('user_answer', '')),
                 percent_correct=answer.get('percent_correct'),
-                user_id=current_user.id
+                user_id=current_user.id,
+                response_time_seconds=answer.get('response_time_seconds'),
+                question_list=str(answer.get('answer_choices'))
             )
             資料庫.session.add(quiz_result)
         try:
