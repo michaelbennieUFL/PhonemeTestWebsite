@@ -1,3 +1,4 @@
+from collections import defaultdict
 from datetime import datetime
 
 from flask import Blueprint, render_template, redirect, url_for, flash, jsonify, request, session
@@ -72,25 +73,36 @@ def logout():
     # TODO: Make the flash work for user.login
     flash("You have been logged out.", "success")
     return redirect(url_for("user.login"))
-
 @user_bp.route("/dashboard")
 @login_required
 def dashboard():
-    # Get the last 5 quiz results
     recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(5).all()
 
-    # Prepare data for the chart
-    labels = [f"Test {test.quiz_number}" for test in recent_tests]
-    data = [test.percent_correct for test in recent_tests]
+    quiz_numbers = [test.quiz_number for test in recent_tests]
 
-    # Get some errors
-    errors = QuizModel.query.filter_by(user_id=current_user.id).filter(QuizModel.percent_correct < 100).order_by(QuizModel.quiz_number.desc()).limit(5).all()
+    all_questions = QuizModel.query.filter(QuizModel.user_id == current_user.id, QuizModel.quiz_number.in_(quiz_numbers)).order_by(QuizModel.quiz_number.desc(), QuizModel.question_number).all()
+
+    all_questions.reverse()
+
+
+    quiz_data = defaultdict(list)  # dictionary to hold lists of percent_correct for each quiz_number
+
+    for quiz in all_questions:
+        quiz_data[quiz.quiz_number].append(quiz.percent_correct)
+
+    # Prepare data for the chart (average percent correct for each quiz)
+    labels = [f"Test {quiz_number}" for quiz_number in quiz_data.keys()]
+    data = [sum(scores) / len(scores) for scores in quiz_data.values()]
+
+    # Get some errors (questions with less than 100% correct)
+    errors = [quiz for quiz in all_questions if quiz.percent_correct < 100]
 
     return render_template("dashboard.html",
                            labels=labels,
                            data=data,
                            errors=errors,
                            date=datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"))
+
 
 @user_bp.route('/updateLang')
 def updateLanguage():

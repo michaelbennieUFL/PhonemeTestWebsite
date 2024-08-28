@@ -46,5 +46,5 @@ class QuizModel(資料庫.Model):
     user = 資料庫.relationship('UserModel', backref=資料庫.backref('quizzes', lazy=True))
 
     __table_args__ = (
-        資料庫.UniqueConstraint('quiz_number', 'question_number', name='uq_quiz_question'),
+        資料庫.UniqueConstraint('quiz_number', 'question_number','user_id', name='user_quiz_number_question_constraint'),
     )

@@ -6,8 +6,8 @@
 
 {% block content %}
 <div class="row mb-4">
-    <div class="col-md-6">
-        <div class="card border-dark mb-4">
+    <div class="col-lg-6 col-md-12">
+        <div class="card border-dark mb-4 h-100">
             <div class="card-header">{{ _('User Information') }}</div>
             <div class="card-body">
                 <p><strong>{{ _('Name:') }}</strong> {{ current_user.username }}</p>
@@ -36,10 +36,10 @@
         </div>
     </div>
 
-    <div class="col-md-6">
-        <div class="card border-dark mb-4">
+    <div class="col-lg-6 col-md-12">
+        <div class="card border-dark mb-4 h-100">
             <div class="card-header">{{ _('Recent Test Accuracy') }}</div>
-            <div class="card-body">
+            <div class="card-body" style="min-height: 400px;">
                 <canvas id="accuracyChart"></canvas>
             </div>
         </div>
