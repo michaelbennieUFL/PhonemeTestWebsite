@@ -11,7 +11,7 @@
             <div class="card-header">{{ _('User Information') }}</div>
             <div class="card-body">
                 <p><strong>{{ _('Name:') }}</strong> {{ current_user.username }}</p>
-                <p><strong>{{ _('Date:') }}</strong> {{ date }}</p>
+                <p><strong>{{ _('Date Registered:') }}</strong> {{ date }}</p>
                 <hr>
                 <form action="{{ url_for('user.updateLanguage') }}" method="get">
                     <div class="mb-3">

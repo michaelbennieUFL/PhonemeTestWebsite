@@ -2,12 +2,81 @@ from collections import defaultdict
 from datetime import datetime
 
 from flask import Blueprint, render_template, redirect, url_for, flash, jsonify, request, session
+from sqlalchemy.testing.util import total_size
+
 from Extensions import 資料庫, 緩存
+from logic.DataHandler import SingleWordDataHandler
 from models import UserModel, QuizModel
 from Forms import RegistrationForm, LoginForm
 from flask_login import login_user, login_required, logout_user, current_user
 
+from logic.LanguageQuizManager import Tester
+
+tester = Tester(SingleWordDataHandler())
+
 user_bp = Blueprint("user", __name__, url_prefix="/user")
+
+
+def calculate_weighted_language_scores(tests, tester):
+    # 統計語言的總分和測驗次數
+    language_scores = defaultdict(lambda: {'total_score': 0, 'count': 0})
+
+
+    for test in tests:
+        language_id = test.language_id
+        score = test.percent_correct
+        language_scores[language_id]['total_score'] += score
+
+
+    # 計算加權平均分數
+    weighted_scores = []
+    languages_with_names = tester.list_languages_with_full_names()
+    language_name_map = {lang[0]: lang[1] for lang in languages_with_names}
+
+    number_of_scores=len(tests)
+
+    for language_id, data in language_scores.items():
+        avg_score =min(data['total_score'] / number_of_scores/100*4, 1)
+        language_name = language_name_map.get(language_id, "Unknown")
+        weighted_scores.append((language_id, language_name, avg_score))
+
+    return weighted_scores
+
+
+@user_bp.route("/dashboard")
+@login_required
+def dashboard():
+    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(200).all()
+
+    quiz_numbers = [test.quiz_number for test in recent_tests]
+
+    all_questions = QuizModel.query.filter(QuizModel.user_id == current_user.id, QuizModel.quiz_number.in_(quiz_numbers)).order_by(QuizModel.quiz_number.desc(), QuizModel.question_number).all()
+
+    if all_questions is not None and len(all_questions) > 0:
+        all_questions.reverse()
+
+    quiz_data = defaultdict(list)
+
+    for quiz in all_questions:
+        quiz_data[quiz.quiz_number].append(quiz.percent_correct)
+
+    labels = [f"Test {quiz_number}" for quiz_number in quiz_data.keys()]
+    data = [sum(scores) / len(scores) for scores in quiz_data.values()]
+
+    errors = [quiz for quiz in all_questions if quiz.percent_correct < 100]
+
+    weighted_scores = calculate_weighted_language_scores(all_questions, tester)
+
+
+    return render_template("dashboard.html",
+                           labels=labels,
+                           data=data,
+                           errors=errors,
+                           highlight_languages=weighted_scores,
+                           date=datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"))
+
+
+
 
 @user_bp.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -74,43 +143,7 @@ def logout():
     flash("You have been logged out.", "success")
     return redirect(url_for("user.login"))
 
-@user_bp.route("/dashboard")
-@login_required
-def dashboard():
-    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(200).all()
 
-    quiz_numbers = [test.quiz_number for test in recent_tests]
-
-    all_questions = QuizModel.query.filter(QuizModel.user_id == current_user.id, QuizModel.quiz_number.in_(quiz_numbers)).order_by(QuizModel.quiz_number.desc(), QuizModel.question_number).all()
-
-    if all_questions is not None and len(all_questions) > 0:
-        all_questions.reverse()
-
-    quiz_data = defaultdict(list)
-
-    for quiz in all_questions:
-        quiz_data[quiz.quiz_number].append(quiz.percent_correct)
-
-    labels = [f"Test {quiz_number}" for quiz_number in quiz_data.keys()]
-    data = [sum(scores) / len(scores) for scores in quiz_data.values()]
-
-    errors = [quiz for quiz in all_questions if quiz.percent_correct < 100]
-
-    # Example highlight languages, this could be generated dynamically based on the user or test data
-    highlight_languages = [
-        ['ady', 'Adyghe', 0.5],
-        ['aka', 'Akan', 0.8],
-        ['am', 'Amharic', 0.5],
-        ['hak', 'Hakka', 0.3],
-        ['nan', 'Min Nan', 0.3]
-    ]
-
-    return render_template("dashboard.html",
-                           labels=labels,
-                           data=data,
-                           errors=errors,
-                           highlight_languages=highlight_languages,
-                           date=datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"))
 
 
 @user_bp.route('/updateLang')
