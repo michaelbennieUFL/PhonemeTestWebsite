@@ -73,17 +73,18 @@ def logout():
     # TODO: Make the flash work for user.login
     flash("You have been logged out.", "success")
     return redirect(url_for("user.login"))
+
 @user_bp.route("/dashboard")
 @login_required
 def dashboard():
-    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(5).all()
+    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(100).all()
 
     quiz_numbers = [test.quiz_number for test in recent_tests]
 
     all_questions = QuizModel.query.filter(QuizModel.user_id == current_user.id, QuizModel.quiz_number.in_(quiz_numbers)).order_by(QuizModel.quiz_number.desc(), QuizModel.question_number).all()
 
-    all_questions.reverse()
-
+    if all_questions is not None and len(all_questions) > 0:
+        all_questions.reverse()
 
     quiz_data = defaultdict(list)  # dictionary to hold lists of percent_correct for each quiz_number
 
