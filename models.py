@@ -33,11 +33,14 @@ class QuizModel(資料庫.Model):
     quiz_number = 資料庫.Column(資料庫.Integer, nullable=False)
     question_number = 資料庫.Column(資料庫.Integer, nullable=False)
     language_id = 資料庫.Column(資料庫.String(15), nullable=False)
-    question_type = 資料庫.Column(資料庫.String(63), nullable=False)
-    word_to_find = 資料庫.Column(資料庫.String(255), nullable=False)
-    correct_answer = 資料庫.Column(資料庫.String(255), nullable=False)
-    user_answer = 資料庫.Column(資料庫.String(255), nullable=True)
+    question_type = 資料庫.Column(資料庫.String(32), nullable=False)
+    word_to_find = 資料庫.Column(資料庫.String(64), nullable=False)
+    correct_answer = 資料庫.Column(資料庫.String(64), nullable=False)
+
+    user_answer = 資料庫.Column(資料庫.String(64), nullable=True)
     percent_correct=資料庫.Column(資料庫.Float(), nullable=True)
+    question_list=資料庫.Column(資料庫.String(256), nullable=True)
+    response_time_seconds=資料庫.Column(資料庫.Float(), nullable=True)
 
 
 

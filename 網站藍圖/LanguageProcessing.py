@@ -53,6 +53,7 @@ def check_answer():
         correct_answer = data.get('correctAnswer')
         user_answer = data.get('userAnswer')
         answertype = data.get('answertype')
+        response_time =data.get('responsetime')
 
         if answertype == "multipleChoice":
             score = 100.0 if user_answer == correct_answer else 0.0
@@ -74,6 +75,9 @@ def check_answer():
         session['quiz_questions'][current_question_index]['user_answer'] = user_answer
         session['quiz_questions'][current_question_index]['percent_correct'] = score
         session['current_question'] += 1
+        if response_time and type(response_time) is float:
+            session['quiz_questions'][current_question_index]['response_time_seconds'] = response_time
+
         return jsonify({"score": score})
 
     except BadRequest:

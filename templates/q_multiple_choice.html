@@ -85,6 +85,9 @@
         let isAnswerSelected = false;
         let selectedAnswer = "";
 
+        // 記錄頁面載入時間
+        const startTime = new Date().getTime();
+
         radios.forEach(radio => {
             radio.addEventListener("change", function() {
                 isAnswerSelected = true;
@@ -101,14 +104,18 @@
                 errorToast.show();
                 setTimeout(() => errorToast.hide(), 1000);
             } else {
-                // Prepare the data to be sent in the POST request
+                // 計算響應時間
+                const responseTime = (new Date().getTime() - startTime) / 1000; // 以秒為單位
+
+                // 準備要發送的資料
                 const data = {
                     correctAnswer: "{{ correct_answer }}",
                     userAnswer: selectedAnswer,
-                    answertype: "multipleChoice"
+                    answertype: "multipleChoice",
+                    responsetime: responseTime
                 };
 
-                // Send POST request to /checkanswer
+                // 發送 POST 請求到 /checkanswer
                 fetch(`{{ url_for('lp.check_answer') }}`, {
                     method: 'POST',
                     headers: {
@@ -164,7 +171,8 @@
                 })
                 .catch(error => console.error("Error:", error));
             }
-        }, { once: true});
+        }, { once: true });
     });
 </script>
+
 {% endblock %}
