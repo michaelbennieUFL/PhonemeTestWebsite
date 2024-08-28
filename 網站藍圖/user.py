@@ -77,7 +77,7 @@ def logout():
 @user_bp.route("/dashboard")
 @login_required
 def dashboard():
-    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(100).all()
+    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(200).all()
 
     quiz_numbers = [test.quiz_number for test in recent_tests]
 
@@ -86,22 +86,30 @@ def dashboard():
     if all_questions is not None and len(all_questions) > 0:
         all_questions.reverse()
 
-    quiz_data = defaultdict(list)  # dictionary to hold lists of percent_correct for each quiz_number
+    quiz_data = defaultdict(list)
 
     for quiz in all_questions:
         quiz_data[quiz.quiz_number].append(quiz.percent_correct)
 
-    # Prepare data for the chart (average percent correct for each quiz)
     labels = [f"Test {quiz_number}" for quiz_number in quiz_data.keys()]
     data = [sum(scores) / len(scores) for scores in quiz_data.values()]
 
-    # Get some errors (questions with less than 100% correct)
     errors = [quiz for quiz in all_questions if quiz.percent_correct < 100]
+
+    # Example highlight languages, this could be generated dynamically based on the user or test data
+    highlight_languages = [
+        ['ady', 'Adyghe', 0.5],
+        ['aka', 'Akan', 0.8],
+        ['am', 'Amharic', 0.5],
+        ['hak', 'Hakka', 0.3],
+        ['nan', 'Min Nan', 0.3]
+    ]
 
     return render_template("dashboard.html",
                            labels=labels,
                            data=data,
                            errors=errors,
+                           highlight_languages=highlight_languages,
                            date=datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"))
 
 

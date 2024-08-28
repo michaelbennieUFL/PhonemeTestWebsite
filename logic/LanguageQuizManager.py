@@ -329,7 +329,8 @@ class Tester:
 
 if __name__ == '__main__':
     # 示例使用
-    tester = Tester(SingleWordDataHandler(directory="../Data/phoneticData"))
+    tester = Tester(SingleWordDataHandler(directory="./Data/phoneticData"))
+    print(tester.list_languages_with_full_names())
 
     # 設置語言並生成問題
     selected_languages = ['nan', 'abk']

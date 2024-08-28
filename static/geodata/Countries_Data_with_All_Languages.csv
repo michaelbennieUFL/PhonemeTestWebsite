@@ -1,0 +1,251 @@
+Code,Name,Continent,Languages
+AD,Andorra,Europe,ca
+AE,United Arab Emirates,Asia,ar
+AF,Afghanistan,Asia,"ps,uz,tk"
+AG,Antigua and Barbuda,North America,en
+AI,Anguilla,North America,en
+AL,Albania,Europe,sq
+AM,Armenia,Asia,"hy,ru"
+AO,Angola,Africa,pt
+AQ,Antarctica,Antarctica,
+AR,Argentina,South America,"es,gn"
+AS,American Samoa,Oceania,"en,sm"
+AT,Austria,Europe,de
+AU,Australia,Oceania,en
+AW,Aruba,North America,"nl,pa"
+AX,Aland,Europe,sv
+AZ,Azerbaijan,Asia,az
+BA,Bosnia and Herzegovina,Europe,"bs,hr,sr"
+BB,Barbados,North America,en
+BD,Bangladesh,Asia,bn
+BE,Belgium,Europe,"nl,fr,de"
+BF,Burkina Faso,Africa,"fr,ff"
+BG,Bulgaria,Europe,bg
+BH,Bahrain,Asia,ar
+BI,Burundi,Africa,"fr,rn"
+BJ,Benin,Africa,fr
+BL,Saint Barthelemy,North America,fr
+BM,Bermuda,North America,en
+BN,Brunei,Asia,ms
+BO,Bolivia,South America,"es,ay,qu"
+BQ,Bonaire,North America,nl
+BR,Brazil,South America,pt
+BS,Bahamas,North America,en
+BT,Bhutan,Asia,dz
+BV,Bouvet Island,Antarctica,"no,nb,nn"
+BW,Botswana,Africa,"en,tn"
+BY,Belarus,Europe,"be,ru"
+BZ,Belize,North America,"en,es"
+CA,Canada,North America,"en,fr"
+CC,Cocos (Keeling) Islands,Asia,en
+CD,Democratic Republic of the Congo,Africa,"fr,ln,kg,sw,lu"
+CF,Central African Republic,Africa,"fr,sg"
+CG,Republic of the Congo,Africa,"fr,ln"
+CH,Switzerland,Europe,"de,fr,it"
+CI,Ivory Coast,Africa,"fr,aka"
+CK,Cook Islands,Oceania,en
+CL,Chile,South America,es
+CM,Cameroon,Africa,"en,fr"
+CN,China,Asia,"zh,hak,hni,wuu,nan,yue"
+CO,Colombia,South America,"es,cbv"
+CR,Costa Rica,North America,es
+CU,Cuba,North America,es
+CV,Cape Verde,Africa,pt
+CW,Curacao,North America,"nl,pa,en"
+CX,Christmas Island,Asia,en
+CY,Cyprus,Europe,"el,tr,hy"
+CZ,Czech Republic,Europe,cs
+DE,Germany,Europe,de
+DJ,Djibouti,Africa,"fr,ar"
+DK,Denmark,Europe,"da,dan"
+DM,Dominica,North America,en
+DO,Dominican Republic,North America,es
+DZ,Algeria,Africa,ar
+EC,Ecuador,South America,es
+EE,Estonia,Europe,et
+EG,Egypt,Africa,ar
+EH,Western Sahara,Africa,es
+ER,Eritrea,Africa,"ti,ar,en"
+ES,Spain,Europe,"es,eu,ca,gl,oc"
+ET,Ethiopia,Africa,am
+FI,Finland,Europe,"fi,sv"
+FJ,Fiji,Oceania,"en,fj,hi,ur"
+FK,Falkland Islands,South America,en
+FM,Micronesia,Oceania,en
+FO,Faroe Islands,Europe,fo
+FR,France,Europe,fr
+GA,Gabon,Africa,fr
+GB,United Kingdom,Europe,en
+GD,Grenada,North America,en
+GE,Georgia,Asia,ka
+GF,French Guiana,South America,fr
+GG,Guernsey,Europe,"en,fr"
+GH,Ghana,Africa,"en,aka,kye,ewe,gwx,cpn,lgq,gaa,dag,lar"
+GI,Gibraltar,Europe,en
+GL,Greenland,North America,kl
+GM,Gambia,Africa,en
+GN,Guinea,Africa,"fr,ff"
+GP,Guadeloupe,North America,fr
+GQ,Equatorial Guinea,Africa,"es,fr"
+GR,Greece,Europe,el
+GS,South Georgia and the South Sandwich Islands,Antarctica,en
+GT,Guatemala,North America,es
+GU,Guam,Oceania,"en,ch,es"
+GW,Guinea-Bissau,Africa,pt
+GY,Guyana,South America,en
+HK,Hong Kong,Asia,"zh,en"
+HM,Heard Island and McDonald Islands,Antarctica,en
+HN,Honduras,North America,es
+HR,Croatia,Europe,hr
+HT,Haiti,North America,"fr,ht"
+HU,Hungary,Europe,hu
+ID,Indonesia,Asia,id
+IE,Ireland,Europe,"ga,en"
+IL,Israel,Asia,"he,ar"
+IM,Isle of Man,Europe,"en,gv"
+IN,India,Asia,"hi,en,guj,asm,kan,bfq,ben,hin,mal,knn,njm"
+IO,British Indian Ocean Territory,Asia,en
+IQ,Iraq,Asia,"ar,ku"
+IR,Iran,Asia,fa
+IS,Iceland,Europe,is
+IT,Italy,Europe,it
+JE,Jersey,Europe,"en,fr"
+JM,Jamaica,North America,en
+JO,Jordan,Asia,ar
+JP,Japan,Asia,ja
+KE,Kenya,Africa,"en,sw"
+KG,Kyrgyzstan,Asia,"ky,ru"
+KH,Cambodia,Asia,km
+KI,Kiribati,Oceania,en
+KM,Comoros,Africa,"ar,fr"
+KN,Saint Kitts and Nevis,North America,en
+KP,North Korea,Asia,ko
+KR,South Korea,Asia,ko
+KW,Kuwait,Asia,ar
+KY,Cayman Islands,North America,en
+KZ,Kazakhstan,Asia,"kk,ru"
+LA,Laos,Asia,lo
+LB,Lebanon,Asia,"ar,fr"
+LC,Saint Lucia,North America,en
+LI,Liechtenstein,Europe,de
+LK,Sri Lanka,Asia,"si,ta"
+LR,Liberia,Africa,en
+LS,Lesotho,Africa,"en,st"
+LT,Lithuania,Europe,lt
+LU,Luxembourg,Europe,"fr,de,lb"
+LV,Latvia,Europe,lv
+LY,Libya,Africa,ar
+MA,Morocco,Africa,ar
+MC,Monaco,Europe,fr
+MD,Moldova,Europe,ro
+ME,Montenegro,Europe,"sr,bs,sq,hr"
+MF,Saint Martin,North America,"en,fr,nl"
+MG,Madagascar,Africa,"fr,mg"
+MH,Marshall Islands,Oceania,"en,mh"
+MK,North Macedonia,Europe,mk
+ML,Mali,Africa,fr
+MM,Myanmar (Burma),Asia,my
+MN,Mongolia,Asia,mn
+MO,Macao,Asia,"zh,pt"
+MP,Northern Mariana Islands,Oceania,"en,ch"
+MQ,Martinique,North America,fr
+MR,Mauritania,Africa,ar
+MS,Montserrat,North America,en
+MT,Malta,Europe,"mt,en"
+MU,Mauritius,Africa,en
+MV,Maldives,Asia,dv
+MW,Malawi,Africa,"en,ny"
+MX,Mexico,North America,es
+MY,Malaysia,Asia,ms
+MZ,Mozambique,Africa,pt
+,Namibia,Africa,"en,af"
+NC,New Caledonia,Oceania,fr
+NE,Niger,Africa,fr
+NF,Norfolk Island,Oceania,en
+NG,Nigeria,Africa,en
+NI,Nicaragua,North America,es
+NL,Netherlands,Europe,nl
+NO,Norway,Europe,"no,nb,nn"
+NP,Nepal,Asia,ne
+NR,Nauru,Oceania,"en,na"
+NU,Niue,Oceania,en
+NZ,New Zealand,Oceania,"en,mi"
+OM,Oman,Asia,ar
+PA,Panama,North America,es
+PE,Peru,South America,es
+PF,French Polynesia,Oceania,fr
+PG,Papua New Guinea,Oceania,en
+PH,Philippines,Asia,"en,ilo,pam,hil,rbl"
+PK,Pakistan,Asia,"en,ur"
+PL,Poland,Europe,pl
+PM,Saint Pierre and Miquelon,North America,fr
+PN,Pitcairn Islands,Oceania,en
+PR,Puerto Rico,North America,"es,en"
+PS,Palestine,Asia,ar
+PT,Portugal,Europe,pt
+PW,Palau,Oceania,en
+PY,Paraguay,South America,"es,gn"
+QA,Qatar,Asia,ar
+RE,Reunion,Africa,fr
+RO,Romania,Europe,ro
+RS,Serbia,Europe,sr
+RU,Russia,Asia,"ru,ady,agx,cji"
+RW,Rwanda,Africa,"rw,en,fr"
+SA,Saudi Arabia,Asia,ar
+SB,Solomon Islands,Oceania,en
+SC,Seychelles,Africa,"fr,en"
+SD,Sudan,Africa,"ar,en"
+SE,Sweden,Europe,sv
+SG,Singapore,Asia,"en,ms,ta,zh"
+SH,Saint Helena,Africa,en
+SI,Slovenia,Europe,sl
+SJ,Svalbard and Jan Mayen,Europe,no
+SK,Slovakia,Europe,sk
+SL,Sierra Leone,Africa,"en,kri"
+SM,San Marino,Europe,it
+SN,Senegal,Africa,fr
+SO,Somalia,Africa,"so,ar"
+SR,Suriname,South America,nl
+SS,South Sudan,Africa,en
+ST,Sao Tome and Principe,Africa,pt
+SV,El Salvador,North America,es
+SX,Sint Maarten,North America,"nl,en"
+SY,Syria,Asia,ar
+SZ,Eswatini,Africa,"en,ss"
+TC,Turks and Caicos Islands,North America,en
+TD,Chad,Africa,"fr,ar"
+TF,French Southern Territories,Antarctica,fr
+TG,Togo,Africa,fr
+TH,Thailand,Asia,th
+TJ,Tajikistan,Asia,"tg,ru"
+TK,Tokelau,Oceania,en
+TL,East Timor,Oceania,pt
+TM,Turkmenistan,Asia,"tk,ru"
+TN,Tunisia,Africa,ar
+TO,Tonga,Oceania,"en,to"
+TR,Turkey,Asia,tr
+TT,Trinidad and Tobago,North America,en
+TV,Tuvalu,Oceania,en
+TW,Taiwan,Asia,"zh,hak,nan"
+TZ,Tanzania,Africa,"sw,en"
+UA,Ukraine,Europe,uk
+UG,Uganda,Africa,"en,sw"
+UM,U.S. Minor Outlying Islands,Oceania,en
+US,United States,North America,en
+UY,Uruguay,South America,es
+UZ,Uzbekistan,Asia,"uz,ru"
+VA,Vatican City,Europe,"it,la"
+VC,Saint Vincent and the Grenadines,North America,en
+VE,Venezuela,South America,es
+VG,British Virgin Islands,North America,en
+VI,U.S. Virgin Islands,North America,en
+VN,Vietnam,Asia,vi
+VU,Vanuatu,Oceania,"bi,en,fr"
+WF,Wallis and Futuna,Oceania,fr
+WS,Samoa,Oceania,"sm,en"
+XK,Kosovo,Europe,"sq,sr"
+YE,Yemen,Asia,ar
+YT,Mayotte,Africa,fr
+ZA,South Africa,Africa,"af,en,nr,st,ss,tn,ts,ve,xh,zu"
+ZM,Zambia,Africa,en
+ZW,Zimbabwe,Africa,"en,sn,nd"
