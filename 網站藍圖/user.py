@@ -46,7 +46,7 @@ def calculate_weighted_language_scores(tests, tester):
 @user_bp.route("/dashboard")
 @login_required
 def dashboard():
-    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(200).all()
+    recent_tests = QuizModel.query.filter_by(user_id=current_user.id).order_by(QuizModel.quiz_number.desc()).limit(100).all()
 
     quiz_numbers = [test.quiz_number for test in recent_tests]
 

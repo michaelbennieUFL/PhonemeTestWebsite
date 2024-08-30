@@ -4,6 +4,76 @@
 {{ _('Dashboard') }}
 {% endblock %}
 
+
+{% block head%}
+    <style>
+        body {
+            font-family: "Charis SIL", "Doulos SIL", Gentium, "Arial Unicode MS","Lucida Sans Unicode", Arial, Serif;
+        }
+
+        #vowels {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #vowelQuadrilateral {
+            position: relative;
+            font-size: 1em;
+            width: 100%;
+            height: 310px;
+            margin-top: 20px;
+        }
+
+        #vowelQuadrilateral span {
+            position: absolute;
+            z-index: 100;
+            font-size: 1.5rem;
+        }
+
+        img#vowelBackground {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        div#vowelSymbols span {
+            font-size: 1.5rem;
+            padding: 0 5px;
+            display: none; /* Initially hide all vowels */
+        }
+
+        div#vowelLabels {
+            font-size: 0.9rem;
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+        }
+
+        div#vowelLabels span {
+            position: absolute;
+        }
+
+        #vowels p.caption {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Heatmap container should overlay the vowel chart */
+        #heatmapContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+        }
+    </style>
+{% endblock %}
+
+
 {% block content %}
 <div class="row mb-4">
     <div class="col-lg-6 col-md-12">
@@ -79,6 +149,60 @@
     </div>
 </div>
 
+<div class="row mb-4">
+    <div class="col-lg-12">
+        <div class="card border-dark mb-4 h-100">
+            <div class="card-header">{{ _('Vowel Error Heatmap') }}</div>
+            <div class="card-body" style="min-height: 400px; position: relative;">
+                    <div id="vowels">
+        <h2>Vowels</h2>
+        <div id="vowelQuadrilateral">
+            <img id="vowelBackground" src="{{ url_for('static', filename='images/vowelBackground.png') }}" alt="Vowel Quadrilateral" />
+            <div id="vowelLabels">
+                <span style="right:76%; top:0">Front</span>
+                <span style="right:40.5%; top:0">Central</span>
+                <span style="right:3.5%; top:0">Back</span>
+            </div>
+            <div id="heatmapContainer"></div> <!-- Heatmap container -->
+
+            <div id="vowelSymbols">
+                <span class="vowel i" style="right:82.31%; top:6.81%;">i</span>
+                <span class="vowel y" style="right:72.77%; top:6.81%;">y</span>
+                <span class="vowel ɨ" style="right:45.85%; top:6.81%;">ɨ</span>
+                <span class="vowel ʉ" style="right:35.85%; top:6.81%;">ʉ</span>
+                <span class="vowel ɯ" style="right:10.00%; top:6.81%;">ɯ</span>
+                <span class="vowel u" style="right:0.15%; top:6.81%;">u</span>
+                <span class="vowel ɪ" style="right:64.15%; top:18.90%;">ɪ</span>
+                <span class="vowel ʏ" style="right:58.46%; top:18.90%;">ʏ</span>
+                <span class="vowel ʊ" style="right:16.62%; top:18.90%;">ʊ</span>
+                <span class="vowel e" style="right:69.85%; top:32.53%;">e</span>
+                <span class="vowel ø" style="right:61.85%; top:32.53%;">ø</span>
+                <span class="vowel ɘ" style="right:41.23%; top:32.53%;">ɘ</span>
+                <span class="vowel ɵ" style="right:31.77%; top:32.53%;">ɵ</span>
+                <span class="vowel ɤ" style="right:10.00%; top:32.53%;">ɤ</span>
+                <span class="vowel o" style="right:0.15%; top:32.53%;">o</span>
+                <span class="vowel ə" style="right:33.50%; top:45.27%;">ə</span>
+                <span class="vowel ɛ" style="right:58.15%; top:58.90%;">ɛ</span>
+                <span class="vowel œ" style="right:48.77%; top:58.90%;">œ</span>
+                <span class="vowel ɜ" style="right:35.08%; top:58.90%;">ɜ</span>
+                <span class="vowel ɞ" style="right:26.15%; top:58.90%;">ɞ</span>
+                <span class="vowel ʌ" style="right:10.54%; top:58.90%;">ʌ</span>
+                <span class="vowel ɔ" style="right:2.46%; top:58.90%;">ɔ</span>
+                <span class="vowel æ" style="right:51.23%; top:73.41%;">æ</span>
+                <span class="vowel ɐ" style="right:28.00%; top:71.65%;">ɐ</span>
+                <span class="vowel a" style="right:45.23%; top:84.84%;">a</span>
+                <span class="vowel ɶ" style="right:35.38%; top:84.84%;">ɶ</span>
+                <span class="vowel ɑ" style="right:9.23%; top:84.84%;">ɑ</span>
+                <span class="vowel ɒ" style="right:2.5%; top:84.84%;">ɒ</span>
+            </div>
+        </div>
+        <p class='caption'>Where symbols appear in pairs, the one to the right represents a rounded vowel.</p>
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     var chartData = {
@@ -90,6 +214,11 @@
     var highlightLanguages = {{ highlight_languages | tojson }};
 </script>
 <script src="//unpkg.com/globe.gl"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/heatmap.js@2.0.5/build/heatmap.min.js"></script> <!-- Ensure this is included -->
+
+<script src="{{ url_for('static', filename='js/vowelHeatmap.js') }}"></script>
+
 <script src="{{ url_for('static', filename='js/accuracyChart.js') }}"></script>
 <script src="{{ url_for('static', filename='js/globe.js') }}"></script>
 {% endblock %}

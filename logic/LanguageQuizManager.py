@@ -7,7 +7,7 @@ from iso639.exceptions import InvalidLanguageValue, DeprecatedLanguageValue
 import panphon.distance
 import panphon.segment
 from logic.DataHandler import SingleWordDataHandler
-
+from logic.Levenshtein import levenshtein_distance
 
 class Tester:
     def __init__(self, handler=SingleWordDataHandler()):
@@ -326,13 +326,98 @@ class Tester:
             questions.append(formatted_question)
         return questions
 
-    def calculate_consonat_vowel_errors(self):
-        pass
+    def calculate_consonat_vowel_errors(self, correct_word: str, incorrect_word: str) -> tuple[dict[str:dict]]:
+        consonant_errors = {}
+        vowel_errors = {}
+
+        correct_feature_table = self.ft.word_to_vector_list(correct_word, numeric=True)
+        incorrect_feature_table = self.ft.word_to_vector_list(incorrect_word, numeric=True)
+
+        spaced_words = levenshtein_distance(correct_feature_table, incorrect_feature_table,delete_insert_cost=0.92)
+
+        for phone_index in range(len(spaced_words["original_string_parts"])):
+            original_sound = tuple(spaced_words["original_string_parts"][phone_index])
+            new_sound = tuple(spaced_words["new_string_parts"][phone_index])
+
+            if original_sound == new_sound:
+                continue
+
+            consonant_index = 2
+
+            # 確定應該更新的字典
+            if (original_sound and original_sound[consonant_index] == 1):
+                target_dict = consonant_errors
+            elif original_sound:
+                target_dict = vowel_errors
+            elif new_sound[consonant_index] == 1:
+                target_dict = consonant_errors
+            else:
+                target_dict = vowel_errors
+
+            # 確定鍵和值
+            if len(original_sound):
+                key = original_sound
+            else:
+                key = ""
+            if len(new_sound):
+                value = new_sound
+            else:
+                value = ""
+
+            # 如果鍵已經存在於字典中，更新其值
+            if key in target_dict:
+                if value in target_dict[key]:
+                    target_dict[key][value] += 1
+                else:
+                    target_dict[key][value] = 1
+            else:
+                target_dict[key] = {value: 1}
+
+        return consonant_errors, vowel_errors
+
+    def calculate_combined_errors(self, word_pairs: list[tuple[str, str]]) -> tuple[dict[str:dict]]:
+        combined_consonant_errors = {}
+        combined_vowel_errors = {}
+
+        for correct_word, incorrect_word in word_pairs:
+            consonant_errors, vowel_errors = self.calculate_consonat_vowel_errors(correct_word, incorrect_word)
+
+            # 合併子音錯誤
+            for key, value_dict in consonant_errors.items():
+                if key not in combined_consonant_errors:
+                    combined_consonant_errors[key] = value_dict
+                else:
+                    for value_key, count in value_dict.items():
+                        if value_key in combined_consonant_errors[key]:
+                            combined_consonant_errors[key][value_key] += count
+                        else:
+                            combined_consonant_errors[key][value_key] = count
+
+            # 合併母音錯誤
+            for key, value_dict in vowel_errors.items():
+                if key not in combined_vowel_errors:
+                    combined_vowel_errors[key] = value_dict
+                else:
+                    for value_key, count in value_dict.items():
+                        if value_key in combined_vowel_errors[key]:
+                            combined_vowel_errors[key][value_key] += count
+                        else:
+                            combined_vowel_errors[key][value_key] = count
+
+        return combined_consonant_errors, combined_vowel_errors
 
 
 if __name__ == '__main__':
+
     # 示例使用
-    tester = Tester(SingleWordDataHandler(directory="./Data/phoneticData"))
+    tester = Tester(SingleWordDataHandler(directory="../Data/phoneticData"))
+
+
+
+    tester.calculate_consonat_vowel_errors("aa","ced")
+
+    exit()
+
     print(tester.list_languages_with_full_names())
 
     # 設置語言並生成問題
