@@ -94,7 +94,7 @@ def generate_equally_phonetically_spaced_words(self, word: str, num_words: int, 
 
 
 
-results = generate_equally_phonetically_spaced_words(0,u'wei˥',5, hamming_distance=2)
+results = generate_equally_phonetically_spaced_words(0,u'abʸɛn',5, hamming_distance=2)
 
 for r in results:
     print(r)

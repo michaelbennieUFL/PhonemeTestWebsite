@@ -119,7 +119,7 @@ class Tester:
         accuracy = max((1 - distance / max_length) * 100, 0)
         return distance, accuracy
 
-    def _select_random_indices(self, matrix, n, valid_columns=[4, 6, 8, 9, 15, 16, 17, 18, 22, 23], include_zeroes=False):
+    def _select_random_indices(self, matrix, n, valid_columns=[4, 6, 8, 9, 15, 16, 17, 18,20,22, 23], include_zeroes=False):
         useable_indicies = [(i, j) for i, row in enumerate(matrix)
                             for j in valid_columns
                             if row[j] != 0 or include_zeroes]
@@ -256,7 +256,7 @@ class Tester:
 
     def get_fill_in_the_blank_question(self, question: str, number_of_answers=1, hamming_distance=2) -> list:
         ipa_segments=self.generate_segment_list(question[3])
-        number_of_letters_to_blank = max((len(ipa_segments) - 1) // 3 + 1, 1)
+        number_of_letters_to_blank = max((len(ipa_segments) -1) // 2 + 1, 1)
         start_blank_index = random.randint(0, len(ipa_segments) - number_of_letters_to_blank)
         end_index = start_blank_index + number_of_letters_to_blank
 
@@ -286,7 +286,7 @@ class Tester:
         correct_options=question_word.split(" ")
         options=correct_options
 
-        random_indicies = random.sample(range(len(correct_options)), min(len(correct_options), 3))
+        random_indicies = random.sample(range(len(correct_options)), min(len(correct_options), 3+random.randrange(0,3)))
 
         for index in random_indicies:
             options=options+(self.generate_equally_phonetically_spaced_words(correct_options[index], num_words=number_of_answers, hamming_distance=hamming_distance))[1:]
@@ -325,6 +325,9 @@ class Tester:
             }
             questions.append(formatted_question)
         return questions
+
+    def calculate_consonat_vowel_errors(self):
+        pass
 
 
 if __name__ == '__main__':

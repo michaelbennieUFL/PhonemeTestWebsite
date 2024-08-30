@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify, session, send_from_directory
 from werkzeug.exceptions import BadRequest
-
+import html
 from logic.DataHandler import SingleWordDataHandler
 from logic.LanguageQuizManager import Tester
 
@@ -50,10 +50,10 @@ def generate_quiz():
 def check_answer():
     try:
         data = request.get_json()
-        correct_answer = data.get('correctAnswer')
-        user_answer = data.get('userAnswer')
+        correct_answer = html.unescape(data.get('correctAnswer'))
+        user_answer = html.unescape(data.get('userAnswer'))
         answertype = data.get('answertype')
-        response_time =data.get('responsetime')
+        response_time = data.get('responsetime')
 
         if answertype == "multipleChoice":
             score = 100.0 if user_answer == correct_answer else 0.0
