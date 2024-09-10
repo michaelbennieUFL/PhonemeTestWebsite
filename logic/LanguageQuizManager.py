@@ -1,13 +1,13 @@
 import os.path
 import random
 import statistics
-
+from pprint import pprint
 from iso639 import Lang
 from iso639.exceptions import InvalidLanguageValue, DeprecatedLanguageValue
 import panphon.distance
 import panphon.segment
 from logic.DataHandler import SingleWordDataHandler
-from logic.Levenshtein import levenshtein_distance
+from logic.Levenshtein import levenshtein_distance_for_inserts as levenshtein_distance
 
 class Tester:
     def __init__(self, handler=SingleWordDataHandler()):
@@ -334,7 +334,7 @@ class Tester:
         correct_feature_table = self.ft.word_to_vector_list(correct_word, numeric=True)
         incorrect_feature_table = self.ft.word_to_vector_list(incorrect_word, numeric=True)
 
-        spaced_words = levenshtein_distance(correct_feature_table, incorrect_feature_table,delete_insert_cost=0.92)
+        spaced_words = levenshtein_distance(correct_feature_table, incorrect_feature_table)
 
         for phone_index in range(len(spaced_words["original_string_parts"])):
             original_sound = tuple(spaced_words["original_string_parts"][phone_index])
@@ -407,15 +407,56 @@ class Tester:
 
         return combined_consonant_errors, combined_vowel_errors
 
+    def convert_errors_to_readable_dict(self, error_dict: dict) -> dict:
+        """
+        Converts an error dictionary with feature vectors to a human-readable dictionary with IPA symbols.
+
+        :param error_dict: A dictionary with feature vectors as keys and a dictionary of substitutions as values.
+        :return: A human-readable dictionary with IPA symbols as keys and a list of substitutions and their counts.
+        """
+        readable_errors = {}
+
+        for original_sound, substitutions in error_dict.items():
+            # Convert the original sound vector to IPA
+            if original_sound:
+                original_ipa = self.ft.vector_list_to_word([list(original_sound)], fuzzy_search=True)
+            else:
+                original_ipa = ""
+
+            # Convert each substitution vector to IPA and prepare the list of tuples (substituted IPA, count)
+            readable_substitutions = [
+                (self.ft.vector_list_to_word([list(new_sound)], fuzzy_search=True), count)
+                for new_sound, count in substitutions.items()
+            ]
+
+            # Store the results in the readable_errors dictionary
+            readable_errors[original_ipa] = readable_substitutions
+
+        return readable_errors
+
+
+
 
 if __name__ == '__main__':
 
     # 示例使用
     tester = Tester(SingleWordDataHandler(directory="../Data/phoneticData"))
 
+    test_word_pairs = [
+        ("nɪt", "maɪt")   # consonant and vowel difference
+    ]
 
+    combined_consonant_errors, combined_vowel_errors = tester.calculate_combined_errors(test_word_pairs)
 
-    tester.calculate_consonat_vowel_errors("aa","ced")
+    # Convert consonant errors to human-readable form
+    readable_consonant_errors = tester.convert_errors_to_readable_dict(combined_consonant_errors)
+    print("Consonant Errors (Human-Readable):")
+    pprint(readable_consonant_errors)
+
+    # Convert vowel errors to human-readable form
+    readable_vowel_errors = tester.convert_errors_to_readable_dict(combined_vowel_errors)
+    print("\nVowel Errors (Human-Readable):")
+    pprint(readable_vowel_errors)
 
     exit()
 
