@@ -2,9 +2,9 @@
 #Database
 HOSTNAME="127.0.0.1"
 SQLPORT=3306
-USERNAME="root"
-PASSWORD=""
-DATABASE ="phonemetestwebsite"
+USERNAME="{Username}"
+PASSWORD="{Username}"
+DATABASE ="{DataBaseName}"
 SQLALCHEMY_DATABASE_URI= f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{SQLPORT}/{DATABASE}?charset=utf8"
 
 
@@ -17,13 +17,13 @@ CACHE_KEY_PREFIX="app_cache"
 
 #Mailing
 
-MAIL_SERVER="smtp.gmail.com"
+MAIL_SERVER="{mail server}"
 MAIL_PORT=587
-MAIL_USE_TLS=True
+MAIL_USE_TLS=True   # May have to change depending on your provider
 MAIL_USE_SSL=False
-MAIL_USERNAME="phonemiclearning@gmail.com"
-MAIL_PASSWORD="bdxa ehjn fbuq pwko"
-MAIL_DEFAULT_SENDER="phonemiclearning@gmail.com"
+MAIL_USERNAME="{email}"
+MAIL_PASSWORD="{password}"
+MAIL_DEFAULT_SENDER="{email}"
 
 
 #Translations
