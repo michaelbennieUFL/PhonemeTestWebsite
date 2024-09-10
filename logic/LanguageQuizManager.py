@@ -312,6 +312,7 @@ class Tester:
                 case 'organize_sounds':
                     correct_answer,word_to_find, answer_choices=self.get_organize_sounds_question(question,number_of_answers=3,hamming_distance=2)
 
+            random.shuffle(answer_choices)
             formatted_question={
                 "language_id" :question[0],
                 "language_name" : question[1],
