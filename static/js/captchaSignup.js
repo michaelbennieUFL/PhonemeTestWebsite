@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
             params: {
                 email: email,
                 username: username
-            }
+            }, 
+            timeout: 90000
         })
         .then(response => {
             const data = response.data;

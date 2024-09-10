@@ -43,11 +43,13 @@ def get_captcha():
             )
         )
 
+        print("Sending message")
+
         # 發送郵件
         郵件.send(message)
 
         # 將驗證碼和發送時間存儲在緩存中
-        緩存.set("emailCaptcha_" + target_email, "".join(captcha), timeout=5*60)  # 設置5分鐘過期
+        緩存.set("emailCaptcha_" + target_email, "".join(captcha), timeout=10*60)  # 設置5分鐘過期
         緩存.set("emailCaptchaTime_" + target_email, current_time)
 
         return jsonify({"code": 200, "message": "Code Sent", "data": None}), 200

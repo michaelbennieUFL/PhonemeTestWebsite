@@ -25,8 +25,8 @@ def filter_csv_by_phonemes(phonemes_file_path, csv_file_path, output_file_path):
         writer.writerows(filtered_rows)
 
 # 使用範例
-csv_file_path= '../.venv/lib/python3.10/site-packages/panphon/data/ipa_all.csv'
+csv_file_path= '/usr/local/lib/python3.10/dist-packages/panphon/data/ipa_all.csv'
 phonemes_file_path = '../allUniquePhones.txt'
-output_file_path = '../.venv/lib/python3.10/site-packages/panphon/data/ipa_all.csv'
+output_file_path = csv_file_path
 
 filter_csv_by_phonemes(phonemes_file_path, csv_file_path, output_file_path)
