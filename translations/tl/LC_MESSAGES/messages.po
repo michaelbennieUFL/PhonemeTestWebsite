@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-28 04:09-0400\n"
+"POT-Creation-Date: 2024-09-10 03:43-0400\n"
 "PO-Revision-Date: 2024-08-27 05:42-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fil_PH\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.14.0\n"
 
 #: templates/dashboard.html:4 templates/pageTemplate.html:4
 #: templates/pageTemplate.html:29 templates/pageTemplate.html:56
@@ -24,61 +24,65 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: templates/dashboard.html:11
+#: templates/dashboard.html:81
 msgid "User Information"
 msgstr "Impormasyon ng Gumagamit"
 
-#: templates/dashboard.html:13
+#: templates/dashboard.html:83
 msgid "Name:"
 msgstr "Pangalan:"
 
-#: templates/dashboard.html:14
+#: templates/dashboard.html:84
 msgid "Date Registered:"
 msgstr "Petsa ng Pagpaparehistro:"
 
-#: templates/dashboard.html:18
+#: templates/dashboard.html:88
 msgid "Display Language"
 msgstr "Wikang Ipakita"
 
-#: templates/dashboard.html:26
+#: templates/dashboard.html:96
 msgid "Native Language"
 msgstr "Wikang Sinilangan"
 
-#: templates/dashboard.html:33
+#: templates/dashboard.html:103
 msgid "Update Preferences"
 msgstr "I-update ang Mga Kagustuhan"
 
-#: templates/dashboard.html:41
+#: templates/dashboard.html:111
 msgid "Recent Test Accuracy"
 msgstr "Katumpakan ng Kamakailang Pagsusulit"
 
-#: templates/dashboard.html:52
+#: templates/dashboard.html:122
 msgid "Tested Language Map"
 msgstr "Mapa ng Nasuring Wika"
 
-#: templates/dashboard.html:61
+#: templates/dashboard.html:131
 msgid "Recent Errors"
 msgstr "Kamakailang Mga Mali"
 
-#: templates/dashboard.html:67 templates/quizResults.html:52
+#: templates/dashboard.html:137 templates/quizResults.html:52
 msgid "Question"
 msgstr "Tanong"
 
-#: templates/dashboard.html:68
+#: templates/dashboard.html:138
 msgid "Your Answer"
 msgstr "Ang Iyong Sagot"
 
-#: templates/dashboard.html:69
+#: templates/dashboard.html:139
 msgid "Correct Answer"
 msgstr "Tamang Sagot"
 
-#: templates/dashboard.html:70 templates/dashboard.html:87
+#: templates/dashboard.html:140 templates/dashboard.html:211
 msgid "Accuracy"
 msgstr "Katumpakan"
 
-#: templates/dashboard.html:75
+#: templates/dashboard.html:145
 msgid "No errors to display."
 msgstr "Walang mga mali na ipapakita."
+
+#: templates/dashboard.html:155
+msgid "Vowel Error Heatmap"
+msgstr ""
 
 #: templates/emailVerification.html:77
 msgid "Signup Captcha for Phonemic Practice++"

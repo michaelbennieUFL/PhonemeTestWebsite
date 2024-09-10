@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-27 11:52-0400\n"
+"POT-Creation-Date: 2024-09-10 03:43-0400\n"
 "PO-Revision-Date: 2024-08-27 05:42-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: sw\n"
@@ -16,7 +16,77 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: templates/dashboard.html:4 templates/pageTemplate.html:4
+#: templates/pageTemplate.html:29 templates/pageTemplate.html:56
+#: templates/pageTemplate.html:82
+msgid "Dashboard"
+msgstr "Dashibodi"
+
+#: templates/dashboard.html:81
+msgid "User Information"
+msgstr ""
+
+#: templates/dashboard.html:83
+#, fuzzy
+msgid "Name:"
+msgstr "Jina la Mtumiaji"
+
+#: templates/dashboard.html:84
+#, fuzzy
+msgid "Date Registered:"
+msgstr "Sajili"
+
+#: templates/dashboard.html:88
+msgid "Display Language"
+msgstr ""
+
+#: templates/dashboard.html:96
+msgid "Native Language"
+msgstr ""
+
+#: templates/dashboard.html:103
+msgid "Update Preferences"
+msgstr ""
+
+#: templates/dashboard.html:111
+msgid "Recent Test Accuracy"
+msgstr ""
+
+#: templates/dashboard.html:122
+msgid "Tested Language Map"
+msgstr ""
+
+#: templates/dashboard.html:131
+msgid "Recent Errors"
+msgstr ""
+
+#: templates/dashboard.html:137 templates/quizResults.html:52
+msgid "Question"
+msgstr "Swali"
+
+#: templates/dashboard.html:138
+#, fuzzy
+msgid "Your Answer"
+msgstr "Jibu Lako:"
+
+#: templates/dashboard.html:139
+#, fuzzy
+msgid "Correct Answer"
+msgstr "Jibu Sahihi:"
+
+#: templates/dashboard.html:140 templates/dashboard.html:211
+msgid "Accuracy"
+msgstr ""
+
+#: templates/dashboard.html:145
+msgid "No errors to display."
+msgstr ""
+
+#: templates/dashboard.html:155
+msgid "Vowel Error Heatmap"
+msgstr ""
 
 #: templates/emailVerification.html:77
 msgid "Signup Captcha for Phonemic Practice++"
@@ -125,7 +195,7 @@ msgstr "Chaguo Mbalimbali"
 msgid "Organize Sounds"
 msgstr "Panga Sauti"
 
-#: templates/languageSelect.html:50
+#: templates/languageSelect.html:51
 msgid "Play Now"
 msgstr "Cheza Sasa"
 
@@ -161,14 +231,6 @@ msgstr "Nyumbani"
 #: templates/pageTemplate.html:25
 msgid "Quiz"
 msgstr "Jaribio"
-
-#: templates/pageTemplate.html:29
-msgid "Stats"
-msgstr "Takwimu"
-
-#: templates/pageTemplate.html:56
-msgid "Dashboard"
-msgstr "Dashibodi"
 
 #: templates/pageTemplate.html:58
 msgid "Logout"
@@ -209,18 +271,18 @@ msgstr "Angalia"
 msgid "You must select one answer to continue!"
 msgstr "Lazima uchague jibu moja ili kuendelea!"
 
-#: templates/q_fill_in_the_blank.html:178 templates/q_multiple_choice.html:125
+#: templates/q_fill_in_the_blank.html:185 templates/q_multiple_choice.html:132
 msgid "Correct!"
 msgstr "Sahihi!"
 
-#: templates/q_fill_in_the_blank.html:181
-#: templates/q_fill_in_the_blank.html:193 templates/q_multiple_choice.html:128
-#: templates/q_multiple_choice.html:143 templates/q_organize_sounds.html:153
-#: templates/quizResults.html:101
+#: templates/q_fill_in_the_blank.html:188
+#: templates/q_fill_in_the_blank.html:200 templates/q_multiple_choice.html:135
+#: templates/q_multiple_choice.html:150 templates/q_organize_sounds.html:160
+#: templates/quizResults.html:89
 msgid "Continue"
 msgstr "Endelea"
 
-#: templates/q_fill_in_the_blank.html:190 templates/q_multiple_choice.html:140
+#: templates/q_fill_in_the_blank.html:197 templates/q_multiple_choice.html:147
 msgid "Incorrect!"
 msgstr "Sio sahihi!"
 
@@ -264,25 +326,25 @@ msgstr "Eneo la Jibu:"
 msgid "Question Zone"
 msgstr "Eneo la Swali"
 
-#: templates/q_organize_sounds.html:128 templates/quizResults.html:26
+#: templates/q_organize_sounds.html:135 templates/quizResults.html:14
 msgid "Amazing!"
 msgstr "Ajabu!"
 
-#: templates/q_organize_sounds.html:133 templates/quizResults.html:42
+#: templates/q_organize_sounds.html:140 templates/quizResults.html:30
 msgid "Good!"
 msgstr "Nzuri!"
 
-#: templates/q_organize_sounds.html:137 templates/q_organize_sounds.html:143
-#: templates/q_organize_sounds.html:149 templates/quizResults.html:80
-#: templates/quizResults.html:84 templates/quizResults.html:87
+#: templates/q_organize_sounds.html:144 templates/q_organize_sounds.html:150
+#: templates/q_organize_sounds.html:156 templates/quizResults.html:68
+#: templates/quizResults.html:72 templates/quizResults.html:75
 msgid "Correct Answer:"
 msgstr "Jibu Sahihi:"
 
-#: templates/q_organize_sounds.html:139
+#: templates/q_organize_sounds.html:146
 msgid "Ok!"
 msgstr "Sawa!"
 
-#: templates/q_organize_sounds.html:145
+#: templates/q_organize_sounds.html:152
 msgid "Wrong!"
 msgstr "Sio Sahihi!"
 
@@ -294,37 +356,33 @@ msgstr "X"
 msgid "Quiz Complete!"
 msgstr "Jaribio Limekamilika!"
 
-#: templates/quizResults.html:28 templates/quizResults.html:36
-#: templates/quizResults.html:44 templates/quizResults.html:52
+#: templates/quizResults.html:16 templates/quizResults.html:24
+#: templates/quizResults.html:32 templates/quizResults.html:40
 msgid "You scored:"
 msgstr "Umejipatia alama:"
 
-#: templates/quizResults.html:34
+#: templates/quizResults.html:22
 msgid "Great!"
 msgstr "Nzuri!"
 
-#: templates/quizResults.html:50
+#: templates/quizResults.html:38
 msgid "Keep Trying!"
 msgstr "Endelea Kujaribu!"
 
-#: templates/quizResults.html:58
+#: templates/quizResults.html:46
 msgid "Questions You Got Wrong"
 msgstr "Maswali Uliyokosea"
 
-#: templates/quizResults.html:64
-msgid "Question"
-msgstr "Swali"
-
-#: templates/quizResults.html:77 templates/quizResults.html:83
-#: templates/quizResults.html:86
+#: templates/quizResults.html:65 templates/quizResults.html:71
+#: templates/quizResults.html:74
 msgid "Your Answer:"
 msgstr "Jibu Lako:"
 
-#: templates/quizResults.html:90
+#: templates/quizResults.html:78
 msgid "Replay Audio"
 msgstr "Chezesha Tena Sauti"
 
-#: templates/quizResults.html:92
+#: templates/quizResults.html:80
 msgid "Question Type:"
 msgstr "Aina ya Swali:"
 
@@ -362,4 +420,7 @@ msgstr "Ingia"
 
 #~ msgid "Phonemic Transcription Quiz"
 #~ msgstr "Jaribio la Transcription ya Phonemic"
+
+#~ msgid "Stats"
+#~ msgstr "Takwimu"
 

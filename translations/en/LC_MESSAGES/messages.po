@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-27 10:20-0400\n"
+"POT-Creation-Date: 2024-09-10 03:43-0400\n"
 "PO-Revision-Date: 2024-08-27 05:42-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -16,7 +16,73 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: templates/dashboard.html:4 templates/pageTemplate.html:4
+#: templates/pageTemplate.html:29 templates/pageTemplate.html:56
+#: templates/pageTemplate.html:82
+msgid "Dashboard"
+msgstr ""
+
+#: templates/dashboard.html:81
+msgid "User Information"
+msgstr ""
+
+#: templates/dashboard.html:83
+msgid "Name:"
+msgstr ""
+
+#: templates/dashboard.html:84
+msgid "Date Registered:"
+msgstr ""
+
+#: templates/dashboard.html:88
+msgid "Display Language"
+msgstr ""
+
+#: templates/dashboard.html:96
+msgid "Native Language"
+msgstr ""
+
+#: templates/dashboard.html:103
+msgid "Update Preferences"
+msgstr ""
+
+#: templates/dashboard.html:111
+msgid "Recent Test Accuracy"
+msgstr ""
+
+#: templates/dashboard.html:122
+msgid "Tested Language Map"
+msgstr ""
+
+#: templates/dashboard.html:131
+msgid "Recent Errors"
+msgstr ""
+
+#: templates/dashboard.html:137 templates/quizResults.html:52
+msgid "Question"
+msgstr ""
+
+#: templates/dashboard.html:138
+msgid "Your Answer"
+msgstr ""
+
+#: templates/dashboard.html:139
+msgid "Correct Answer"
+msgstr ""
+
+#: templates/dashboard.html:140 templates/dashboard.html:211
+msgid "Accuracy"
+msgstr ""
+
+#: templates/dashboard.html:145
+msgid "No errors to display."
+msgstr ""
+
+#: templates/dashboard.html:155
+msgid "Vowel Error Heatmap"
+msgstr ""
 
 #: templates/emailVerification.html:77
 msgid "Signup Captcha for Phonemic Practice++"
@@ -120,12 +186,12 @@ msgstr ""
 msgid "Organize Sounds"
 msgstr ""
 
-#: templates/languageSelect.html:50
+#: templates/languageSelect.html:51
 msgid "Play Now"
 msgstr ""
 
 #: templates/login.html:4 templates/login.html:8 templates/login.html:48
-#: templates/pageTemplate.html:47
+#: templates/pageTemplate.html:63
 msgid "Log In"
 msgstr ""
 
@@ -157,29 +223,21 @@ msgstr ""
 msgid "Quiz"
 msgstr ""
 
-#: templates/pageTemplate.html:29
-msgid "Stats"
-msgstr ""
-
-#: templates/pageTemplate.html:40
-msgid "Dashboard"
-msgstr ""
-
-#: templates/pageTemplate.html:42
+#: templates/pageTemplate.html:58
 msgid "Logout"
 msgstr ""
 
-#: templates/pageTemplate.html:51 templates/register.html:4
+#: templates/pageTemplate.html:67 templates/register.html:4
 #: templates/register.html:8
 msgid "Sign Up"
 msgstr ""
 
-#: templates/pageTemplate.html:79 templates/q_fill_in_the_blank.html:117
+#: templates/pageTemplate.html:95 templates/q_fill_in_the_blank.html:117
 #: templates/q_multiple_choice.html:71
 msgid "Close"
 msgstr ""
 
-#: templates/pageTemplate.html:91 templates/questionsBase.html:61
+#: templates/pageTemplate.html:107 templates/questionsBase.html:61
 msgid "Made by Michael Bennie"
 msgstr ""
 
@@ -204,18 +262,18 @@ msgstr ""
 msgid "You must select one answer to continue!"
 msgstr ""
 
-#: templates/q_fill_in_the_blank.html:178 templates/q_multiple_choice.html:125
+#: templates/q_fill_in_the_blank.html:185 templates/q_multiple_choice.html:132
 msgid "Correct!"
 msgstr ""
 
-#: templates/q_fill_in_the_blank.html:181
-#: templates/q_fill_in_the_blank.html:193 templates/q_multiple_choice.html:128
-#: templates/q_multiple_choice.html:143 templates/q_organize_sounds.html:153
-#: templates/quizResults.html:101
+#: templates/q_fill_in_the_blank.html:188
+#: templates/q_fill_in_the_blank.html:200 templates/q_multiple_choice.html:135
+#: templates/q_multiple_choice.html:150 templates/q_organize_sounds.html:160
+#: templates/quizResults.html:89
 msgid "Continue"
 msgstr ""
 
-#: templates/q_fill_in_the_blank.html:190 templates/q_multiple_choice.html:140
+#: templates/q_fill_in_the_blank.html:197 templates/q_multiple_choice.html:147
 msgid "Incorrect!"
 msgstr ""
 
@@ -257,25 +315,25 @@ msgstr ""
 msgid "Question Zone"
 msgstr ""
 
-#: templates/q_organize_sounds.html:128 templates/quizResults.html:26
+#: templates/q_organize_sounds.html:135 templates/quizResults.html:14
 msgid "Amazing!"
 msgstr ""
 
-#: templates/q_organize_sounds.html:133 templates/quizResults.html:42
+#: templates/q_organize_sounds.html:140 templates/quizResults.html:30
 msgid "Good!"
 msgstr ""
 
-#: templates/q_organize_sounds.html:137 templates/q_organize_sounds.html:143
-#: templates/q_organize_sounds.html:149 templates/quizResults.html:80
-#: templates/quizResults.html:84 templates/quizResults.html:87
+#: templates/q_organize_sounds.html:144 templates/q_organize_sounds.html:150
+#: templates/q_organize_sounds.html:156 templates/quizResults.html:68
+#: templates/quizResults.html:72 templates/quizResults.html:75
 msgid "Correct Answer:"
 msgstr ""
 
-#: templates/q_organize_sounds.html:139
+#: templates/q_organize_sounds.html:146
 msgid "Ok!"
 msgstr ""
 
-#: templates/q_organize_sounds.html:145
+#: templates/q_organize_sounds.html:152
 msgid "Wrong!"
 msgstr ""
 
@@ -287,37 +345,33 @@ msgstr ""
 msgid "Quiz Complete!"
 msgstr ""
 
-#: templates/quizResults.html:28 templates/quizResults.html:36
-#: templates/quizResults.html:44 templates/quizResults.html:52
+#: templates/quizResults.html:16 templates/quizResults.html:24
+#: templates/quizResults.html:32 templates/quizResults.html:40
 msgid "You scored:"
 msgstr ""
 
-#: templates/quizResults.html:34
+#: templates/quizResults.html:22
 msgid "Great!"
 msgstr ""
 
-#: templates/quizResults.html:50
+#: templates/quizResults.html:38
 msgid "Keep Trying!"
 msgstr ""
 
-#: templates/quizResults.html:58
+#: templates/quizResults.html:46
 msgid "Questions You Got Wrong"
 msgstr ""
 
-#: templates/quizResults.html:64
-msgid "Question"
-msgstr ""
-
-#: templates/quizResults.html:77 templates/quizResults.html:83
-#: templates/quizResults.html:86
+#: templates/quizResults.html:65 templates/quizResults.html:71
+#: templates/quizResults.html:74
 msgid "Your Answer:"
 msgstr ""
 
-#: templates/quizResults.html:90
+#: templates/quizResults.html:78
 msgid "Replay Audio"
 msgstr ""
 
-#: templates/quizResults.html:92
+#: templates/quizResults.html:80
 msgid "Question Type:"
 msgstr ""
 
@@ -355,4 +409,7 @@ msgstr ""
 
 #~ msgid "Phonemic Transcription Quiz"
 #~ msgstr "pp"
+
+#~ msgid "Stats"
+#~ msgstr ""
 
