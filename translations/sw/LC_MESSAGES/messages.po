@@ -1,0 +1,365 @@
+# Swahili translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-27 11:52-0400\n"
+"PO-Revision-Date: 2024-08-27 05:42-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: sw\n"
+"Language-Team: sw <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: templates/emailVerification.html:77
+msgid "Signup Captcha for Phonemic Practice++"
+msgstr "Captcha ya Usajili kwa Phonemic Practice++"
+
+#: templates/emailVerification.html:80
+msgid "Dear"
+msgstr "Mpendwa"
+
+#: templates/emailVerification.html:82
+msgid ""
+"We have received a login request for your Phonemic Practice++ account. "
+"For security purposes, please verify your identity by providing the "
+"following One-Time Password (OTP)."
+msgstr ""
+"Tumepokea ombi la kuingia kwenye akaunti yako ya Phonemic Practice++. Kwa"
+" madhumuni ya usalama, tafadhali thibitisha utambulisho wako kwa kuweka "
+"Nenosiri la Muda (OTP) lifuatalo."
+
+#: templates/emailVerification.html:84
+msgid "Your One-Time Password (OTP) verification code is:"
+msgstr "Msimbo wako wa kuthibitisha Nenosiri la Muda (OTP) ni:"
+
+#: templates/emailVerification.html:88
+msgid "The One-Time Password (OTP) is valid for 5 minutes."
+msgstr "Nenosiri la Muda (OTP) linatumika kwa dakika 5."
+
+#: templates/emailVerification.html:91
+msgid ""
+"If you did not initiate this login request, please disregard this "
+"message. Please ensure the confidentiality of your OTP and do not share "
+"it with anyone."
+msgstr ""
+"Ikiwa haujaanzisha ombi hili la kuingia, tafadhali puuza ujumbe huu. "
+"Hakikisha faragha ya OTP yako na usishiriki na mtu yeyote."
+
+#: templates/emailVerification.html:92
+msgid "Do not forward or give this code to anyone."
+msgstr "Usihamishe au usipe msimbo huu kwa mtu yeyote."
+
+#: templates/emailVerification.html:95
+msgid "Thank you for using Phonemic Practice++."
+msgstr "Asante kwa kutumia Phonemic Practice++."
+
+#: templates/emailVerification.html:98
+msgid "Best regards,"
+msgstr "Kwa heri,"
+
+#: templates/emailVerification.html:100
+msgid "The Phonemic Practice++ Team"
+msgstr "Timu ya Phonemic Practice++"
+
+#: templates/emailVerification.html:105
+msgid "This email can't receive replies."
+msgstr "Barua pepe hii haiwezi kupokea majibu."
+
+#: templates/emailVerification.html:107
+msgid "For more information about Phonemic Practice++ and your account, visit"
+msgstr "Kwa habari zaidi kuhusu Phonemic Practice++ na akaunti yako, tembelea"
+
+#: templates/emailVerification.html:108
+msgid "[Website Name]"
+msgstr "[Jina la Tovuti]"
+
+#: templates/emailVerification.html:115
+msgid "This email was sent to"
+msgstr "Barua pepe hii imetumwa kwa"
+
+#: templates/emailVerification.html:121
+msgid "Michael Bennie"
+msgstr "Michael Bennie"
+
+#: templates/emailVerification.html:121
+msgid "All rights reserved."
+msgstr "Haki zote zimehifadhiwa."
+
+#: templates/languageSelect.html:4 templates/languageSelect.html:9
+msgid "Phonemic Transcription Quiz"
+msgstr "Jaribio la Transcription ya Phonemic"
+
+#: templates/languageSelect.html:15
+msgid "Which languages do you want to quiz yourself on?"
+msgstr "Unataka kujifanyia majaribio kwa lugha gani?"
+
+#: templates/languageSelect.html:20
+msgid "Toggle All"
+msgstr "Chagua Yote"
+
+#: templates/languageSelect.html:26
+msgid "How many questions do you want in your quiz?"
+msgstr "Unataka maswali mangapi kwenye jaribio lako?"
+
+#: templates/languageSelect.html:31
+msgid "Which type of questions do you want in your quiz?"
+msgstr "Unataka aina gani ya maswali kwenye jaribio lako?"
+
+#: templates/languageSelect.html:36
+msgid "Fill in the Blank"
+msgstr "Jaza Pengo"
+
+#: templates/languageSelect.html:40
+msgid "Multiple Choice"
+msgstr "Chaguo Mbalimbali"
+
+#: templates/languageSelect.html:44
+msgid "Organize Sounds"
+msgstr "Panga Sauti"
+
+#: templates/languageSelect.html:50
+msgid "Play Now"
+msgstr "Cheza Sasa"
+
+#: templates/login.html:4 templates/login.html:8 templates/login.html:48
+#: templates/pageTemplate.html:63
+msgid "Log In"
+msgstr "Ingia"
+
+#: templates/login.html:20 templates/register.html:39
+msgid "Email"
+msgstr "Barua pepe"
+
+#: templates/login.html:32 templates/register.html:71
+msgid "Password"
+msgstr "Nenosiri"
+
+#: templates/login.html:52
+msgid "Don't have an account?"
+msgstr "Huna akaunti?"
+
+#: templates/login.html:52
+msgid "Sign up"
+msgstr "Jisajili"
+
+#: templates/pageTemplate.html:13
+msgid "Transcribe++"
+msgstr "Andika++"
+
+#: templates/pageTemplate.html:21
+msgid "Home"
+msgstr "Nyumbani"
+
+#: templates/pageTemplate.html:25
+msgid "Quiz"
+msgstr "Jaribio"
+
+#: templates/pageTemplate.html:29
+msgid "Stats"
+msgstr "Takwimu"
+
+#: templates/pageTemplate.html:56
+msgid "Dashboard"
+msgstr "Dashibodi"
+
+#: templates/pageTemplate.html:58
+msgid "Logout"
+msgstr "Ondoka"
+
+#: templates/pageTemplate.html:67 templates/register.html:4
+#: templates/register.html:8
+msgid "Sign Up"
+msgstr "Jisajili"
+
+#: templates/pageTemplate.html:95 templates/q_fill_in_the_blank.html:117
+#: templates/q_multiple_choice.html:71
+msgid "Close"
+msgstr "Funga"
+
+#: templates/pageTemplate.html:107 templates/questionsBase.html:61
+msgid "Made by Michael Bennie"
+msgstr "Imetengenezwa na Michael Bennie"
+
+#: templates/q_fill_in_the_blank.html:4
+msgid "What's Missing?"
+msgstr "Nini Kinakosekana?"
+
+#: templates/q_fill_in_the_blank.html:8
+msgid "What Sounds are Missing?"
+msgstr "Sauti zipi zinakosekana?"
+
+#: templates/q_fill_in_the_blank.html:12
+msgid "Fill in the yellow area with the correct phonemes."
+msgstr "Jaza eneo la njano na fonimu sahihi."
+
+#: templates/q_fill_in_the_blank.html:108 templates/q_multiple_choice.html:61
+#: templates/q_organize_sounds.html:66 templates/questionsBase.html:57
+msgid "Check"
+msgstr "Angalia"
+
+#: templates/q_fill_in_the_blank.html:115
+msgid "You must select one answer to continue!"
+msgstr "Lazima uchague jibu moja ili kuendelea!"
+
+#: templates/q_fill_in_the_blank.html:178 templates/q_multiple_choice.html:125
+msgid "Correct!"
+msgstr "Sahihi!"
+
+#: templates/q_fill_in_the_blank.html:181
+#: templates/q_fill_in_the_blank.html:193 templates/q_multiple_choice.html:128
+#: templates/q_multiple_choice.html:143 templates/q_organize_sounds.html:153
+#: templates/quizResults.html:101
+msgid "Continue"
+msgstr "Endelea"
+
+#: templates/q_fill_in_the_blank.html:190 templates/q_multiple_choice.html:140
+msgid "Incorrect!"
+msgstr "Sio sahihi!"
+
+#: templates/q_multiple_choice.html:4
+msgid "You Got This!"
+msgstr "Umefanikiwa!"
+
+#: templates/q_multiple_choice.html:8
+msgid "What's the transcription?"
+msgstr "Je, andiko ni nini?"
+
+#: templates/q_multiple_choice.html:12
+msgid "Choose the closest transcription"
+msgstr "Chagua andiko lililo karibu zaidi"
+
+#: templates/q_multiple_choice.html:69
+msgid "You have to select an answer before submitting!"
+msgstr "Lazima uchague jibu kabla ya kuwasilisha!"
+
+#: templates/q_organize_sounds.html:4
+msgid "Order the phonemes!"
+msgstr "Panga fonimu!"
+
+#: templates/q_organize_sounds.html:8
+msgid "Organize the phonemes!"
+msgstr "Panga fonimu!"
+
+#: templates/q_organize_sounds.html:12
+msgid ""
+"Click on the set of sounds on the bottom to move them from the question "
+"zone to the response zone."
+msgstr ""
+"Bofya kwenye seti ya sauti chini ili kuzihamisha kutoka eneo la swali "
+"hadi eneo la jibu."
+
+#: templates/q_organize_sounds.html:17
+msgid "Response Zone:"
+msgstr "Eneo la Jibu:"
+
+#: templates/q_organize_sounds.html:29
+msgid "Question Zone"
+msgstr "Eneo la Swali"
+
+#: templates/q_organize_sounds.html:128 templates/quizResults.html:26
+msgid "Amazing!"
+msgstr "Ajabu!"
+
+#: templates/q_organize_sounds.html:133 templates/quizResults.html:42
+msgid "Good!"
+msgstr "Nzuri!"
+
+#: templates/q_organize_sounds.html:137 templates/q_organize_sounds.html:143
+#: templates/q_organize_sounds.html:149 templates/quizResults.html:80
+#: templates/quizResults.html:84 templates/quizResults.html:87
+msgid "Correct Answer:"
+msgstr "Jibu Sahihi:"
+
+#: templates/q_organize_sounds.html:139
+msgid "Ok!"
+msgstr "Sawa!"
+
+#: templates/q_organize_sounds.html:145
+msgid "Wrong!"
+msgstr "Sio Sahihi!"
+
+#: templates/questionsBase.html:7
+msgid "X"
+msgstr "X"
+
+#: templates/quizResults.html:2 templates/quizResults.html:4
+msgid "Quiz Complete!"
+msgstr "Jaribio Limekamilika!"
+
+#: templates/quizResults.html:28 templates/quizResults.html:36
+#: templates/quizResults.html:44 templates/quizResults.html:52
+msgid "You scored:"
+msgstr "Umejipatia alama:"
+
+#: templates/quizResults.html:34
+msgid "Great!"
+msgstr "Nzuri!"
+
+#: templates/quizResults.html:50
+msgid "Keep Trying!"
+msgstr "Endelea Kujaribu!"
+
+#: templates/quizResults.html:58
+msgid "Questions You Got Wrong"
+msgstr "Maswali Uliyokosea"
+
+#: templates/quizResults.html:64
+msgid "Question"
+msgstr "Swali"
+
+#: templates/quizResults.html:77 templates/quizResults.html:83
+#: templates/quizResults.html:86
+msgid "Your Answer:"
+msgstr "Jibu Lako:"
+
+#: templates/quizResults.html:90
+msgid "Replay Audio"
+msgstr "Chezesha Tena Sauti"
+
+#: templates/quizResults.html:92
+msgid "Question Type:"
+msgstr "Aina ya Swali:"
+
+#: templates/register.html:25
+msgid "Username"
+msgstr "Jina la Mtumiaji"
+
+#: templates/register.html:49
+msgid "Send Captcha"
+msgstr "Tuma Captcha"
+
+#: templates/register.html:56
+msgid "Enter Captcha"
+msgstr "Weka Captcha"
+
+#: templates/register.html:83
+msgid "Repeat your password"
+msgstr "Rudia nenosiri lako"
+
+#: templates/register.html:100
+msgid "Optional: Enter your age"
+msgstr "Hiari: Weka umri wako"
+
+#: templates/register.html:116
+msgid "Register"
+msgstr "Sajili"
+
+#: templates/register.html:120
+msgid "Already a member?"
+msgstr "Tayari ni mwanachama?"
+
+#: templates/register.html:120
+msgid "Log in"
+msgstr "Ingia"
+
+#~ msgid "Phonemic Transcription Quiz"
+#~ msgstr "Jaribio la Transcription ya Phonemic"
+

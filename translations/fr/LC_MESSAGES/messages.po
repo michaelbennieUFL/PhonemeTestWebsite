@@ -1,0 +1,426 @@
+# French translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-28 04:09-0400\n"
+"PO-Revision-Date: 2024-08-27 05:42-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: templates/dashboard.html:4 templates/pageTemplate.html:4
+#: templates/pageTemplate.html:29 templates/pageTemplate.html:56
+#: templates/pageTemplate.html:82
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: templates/dashboard.html:11
+msgid "User Information"
+msgstr ""
+
+#: templates/dashboard.html:13
+#, fuzzy
+msgid "Name:"
+msgstr "Nom d'utilisateur"
+
+#: templates/dashboard.html:14
+#, fuzzy
+msgid "Date Registered:"
+msgstr "S'inscrire"
+
+#: templates/dashboard.html:18
+msgid "Display Language"
+msgstr ""
+
+#: templates/dashboard.html:26
+msgid "Native Language"
+msgstr ""
+
+#: templates/dashboard.html:33
+msgid "Update Preferences"
+msgstr ""
+
+#: templates/dashboard.html:41
+msgid "Recent Test Accuracy"
+msgstr ""
+
+#: templates/dashboard.html:52
+msgid "Tested Language Map"
+msgstr ""
+
+#: templates/dashboard.html:61
+msgid "Recent Errors"
+msgstr ""
+
+#: templates/dashboard.html:67 templates/quizResults.html:52
+msgid "Question"
+msgstr "Question"
+
+#: templates/dashboard.html:68
+#, fuzzy
+msgid "Your Answer"
+msgstr "Votre réponse :"
+
+#: templates/dashboard.html:69
+#, fuzzy
+msgid "Correct Answer"
+msgstr "Réponse correcte :"
+
+#: templates/dashboard.html:70 templates/dashboard.html:87
+msgid "Accuracy"
+msgstr ""
+
+#: templates/dashboard.html:75
+msgid "No errors to display."
+msgstr ""
+
+#: templates/emailVerification.html:77
+msgid "Signup Captcha for Phonemic Practice++"
+msgstr "Captcha d'inscription pour Phonemic Practice++"
+
+#: templates/emailVerification.html:80
+msgid "Dear"
+msgstr "Cher/Chère"
+
+#: templates/emailVerification.html:82
+msgid ""
+"We have received a login request for your Phonemic Practice++ account. "
+"For security purposes, please verify your identity by providing the "
+"following One-Time Password (OTP)."
+msgstr ""
+"Nous avons reçu une demande de connexion à votre compte Phonemic "
+"Practice++. Pour des raisons de sécurité, veuillez vérifier votre "
+"identité en fournissant le mot de passe à usage unique (OTP) suivant."
+
+#: templates/emailVerification.html:84
+msgid "Your One-Time Password (OTP) verification code is:"
+msgstr "Votre code de vérification de mot de passe à usage unique (OTP) est :"
+
+#: templates/emailVerification.html:88
+msgid "The One-Time Password (OTP) is valid for 5 minutes."
+msgstr "Le mot de passe à usage unique (OTP) est valable pendant 5 minutes."
+
+#: templates/emailVerification.html:91
+msgid ""
+"If you did not initiate this login request, please disregard this "
+"message. Please ensure the confidentiality of your OTP and do not share "
+"it with anyone."
+msgstr ""
+"Si vous n'êtes pas à l'origine de cette demande de connexion, veuillez "
+"ignorer ce message. Veuillez assurer la confidentialité de votre OTP et "
+"ne le partagez avec personne."
+
+#: templates/emailVerification.html:92
+msgid "Do not forward or give this code to anyone."
+msgstr "Ne transférez pas et ne donnez ce code à personne."
+
+#: templates/emailVerification.html:95
+msgid "Thank you for using Phonemic Practice++."
+msgstr "Merci d'utiliser Phonemic Practice++."
+
+#: templates/emailVerification.html:98
+msgid "Best regards,"
+msgstr "Cordialement,"
+
+#: templates/emailVerification.html:100
+msgid "The Phonemic Practice++ Team"
+msgstr "L'équipe Phonemic Practice++"
+
+#: templates/emailVerification.html:105
+msgid "This email can't receive replies."
+msgstr "Cet e-mail ne peut pas recevoir de réponses."
+
+#: templates/emailVerification.html:107
+msgid "For more information about Phonemic Practice++ and your account, visit"
+msgstr "Pour plus d'informations sur Phonemic Practice++ et votre compte, visitez"
+
+#: templates/emailVerification.html:108
+msgid "[Website Name]"
+msgstr "[Nom du site Web]"
+
+#: templates/emailVerification.html:115
+msgid "This email was sent to"
+msgstr "Cet e-mail a été envoyé à"
+
+#: templates/emailVerification.html:121
+msgid "Michael Bennie"
+msgstr "Michael Bennie"
+
+#: templates/emailVerification.html:121
+msgid "All rights reserved."
+msgstr "Tous droits réservés."
+
+#: templates/languageSelect.html:4 templates/languageSelect.html:9
+msgid "Phonemic Transcription Quiz"
+msgstr "Quiz de transcription phonémique"
+
+#: templates/languageSelect.html:15
+msgid "Which languages do you want to quiz yourself on?"
+msgstr "Dans quelles langues souhaitez-vous vous tester ?"
+
+#: templates/languageSelect.html:20
+msgid "Toggle All"
+msgstr "Tout sélectionner"
+
+#: templates/languageSelect.html:26
+msgid "How many questions do you want in your quiz?"
+msgstr "Combien de questions souhaitez-vous dans votre quiz ?"
+
+#: templates/languageSelect.html:31
+msgid "Which type of questions do you want in your quiz?"
+msgstr "Quel type de questions souhaitez-vous dans votre quiz ?"
+
+#: templates/languageSelect.html:36
+msgid "Fill in the Blank"
+msgstr "Remplir les blancs"
+
+#: templates/languageSelect.html:40
+msgid "Multiple Choice"
+msgstr "Choix multiple"
+
+#: templates/languageSelect.html:44
+msgid "Organize Sounds"
+msgstr "Organiser les sons"
+
+#: templates/languageSelect.html:51
+msgid "Play Now"
+msgstr "Jouer maintenant"
+
+#: templates/login.html:4 templates/login.html:8 templates/login.html:48
+#: templates/pageTemplate.html:63
+msgid "Log In"
+msgstr "Connexion"
+
+#: templates/login.html:20 templates/register.html:39
+msgid "Email"
+msgstr "E-mail"
+
+#: templates/login.html:32 templates/register.html:71
+msgid "Password"
+msgstr "Mot de passe"
+
+#: templates/login.html:52
+msgid "Don't have an account?"
+msgstr "Vous n'avez pas de compte ?"
+
+#: templates/login.html:52
+msgid "Sign up"
+msgstr "Inscription"
+
+#: templates/pageTemplate.html:13
+msgid "Transcribe++"
+msgstr "Transcrire++"
+
+#: templates/pageTemplate.html:21
+msgid "Home"
+msgstr "Accueil"
+
+#: templates/pageTemplate.html:25
+msgid "Quiz"
+msgstr "Quiz"
+
+#: templates/pageTemplate.html:58
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: templates/pageTemplate.html:67 templates/register.html:4
+#: templates/register.html:8
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: templates/pageTemplate.html:95 templates/q_fill_in_the_blank.html:117
+#: templates/q_multiple_choice.html:71
+msgid "Close"
+msgstr "Fermer"
+
+#: templates/pageTemplate.html:107 templates/questionsBase.html:61
+msgid "Made by Michael Bennie"
+msgstr "Réalisé par Michael Bennie"
+
+#: templates/q_fill_in_the_blank.html:4
+msgid "What's Missing?"
+msgstr "Qu'est-ce qui manque ?"
+
+#: templates/q_fill_in_the_blank.html:8
+msgid "What Sounds are Missing?"
+msgstr "Quels sons manquent ?"
+
+#: templates/q_fill_in_the_blank.html:12
+msgid "Fill in the yellow area with the correct phonemes."
+msgstr "Remplissez la zone jaune avec les phonèmes corrects."
+
+#: templates/q_fill_in_the_blank.html:108 templates/q_multiple_choice.html:61
+#: templates/q_organize_sounds.html:66 templates/questionsBase.html:57
+msgid "Check"
+msgstr "Vérifier"
+
+#: templates/q_fill_in_the_blank.html:115
+msgid "You must select one answer to continue!"
+msgstr "Vous devez sélectionner une réponse pour continuer !"
+
+#: templates/q_fill_in_the_blank.html:185 templates/q_multiple_choice.html:132
+msgid "Correct!"
+msgstr "Correct !"
+
+#: templates/q_fill_in_the_blank.html:188
+#: templates/q_fill_in_the_blank.html:200 templates/q_multiple_choice.html:135
+#: templates/q_multiple_choice.html:150 templates/q_organize_sounds.html:160
+#: templates/quizResults.html:89
+msgid "Continue"
+msgstr "Continuer"
+
+#: templates/q_fill_in_the_blank.html:197 templates/q_multiple_choice.html:147
+msgid "Incorrect!"
+msgstr "Incorrect !"
+
+#: templates/q_multiple_choice.html:4
+msgid "You Got This!"
+msgstr "Vous y êtes presque !"
+
+#: templates/q_multiple_choice.html:8
+msgid "What's the transcription?"
+msgstr "Quelle est la transcription ?"
+
+#: templates/q_multiple_choice.html:12
+msgid "Choose the closest transcription"
+msgstr "Choisissez la transcription la plus proche"
+
+#: templates/q_multiple_choice.html:69
+msgid "You have to select an answer before submitting!"
+msgstr "Vous devez sélectionner une réponse avant de soumettre !"
+
+#: templates/q_organize_sounds.html:4
+msgid "Order the phonemes!"
+msgstr "Ordonnez les phonèmes !"
+
+#: templates/q_organize_sounds.html:8
+msgid "Organize the phonemes!"
+msgstr "Organisez les phonèmes !"
+
+#: templates/q_organize_sounds.html:12
+msgid ""
+"Click on the set of sounds on the bottom to move them from the question "
+"zone to the response zone."
+msgstr ""
+"Cliquez sur l'ensemble des sons en bas pour les déplacer de la zone de "
+"question à la zone de réponse."
+
+#: templates/q_organize_sounds.html:17
+msgid "Response Zone:"
+msgstr "Zone de réponse :"
+
+#: templates/q_organize_sounds.html:29
+msgid "Question Zone"
+msgstr "Zone de question"
+
+#: templates/q_organize_sounds.html:135 templates/quizResults.html:14
+msgid "Amazing!"
+msgstr "Incroyable !"
+
+#: templates/q_organize_sounds.html:140 templates/quizResults.html:30
+msgid "Good!"
+msgstr "Bien !"
+
+#: templates/q_organize_sounds.html:144 templates/q_organize_sounds.html:150
+#: templates/q_organize_sounds.html:156 templates/quizResults.html:68
+#: templates/quizResults.html:72 templates/quizResults.html:75
+msgid "Correct Answer:"
+msgstr "Réponse correcte :"
+
+#: templates/q_organize_sounds.html:146
+msgid "Ok!"
+msgstr "Ok !"
+
+#: templates/q_organize_sounds.html:152
+msgid "Wrong!"
+msgstr "Faux !"
+
+#: templates/questionsBase.html:7
+msgid "X"
+msgstr "X"
+
+#: templates/quizResults.html:2 templates/quizResults.html:4
+msgid "Quiz Complete!"
+msgstr "Quiz terminé !"
+
+#: templates/quizResults.html:16 templates/quizResults.html:24
+#: templates/quizResults.html:32 templates/quizResults.html:40
+msgid "You scored:"
+msgstr "Vous avez obtenu :"
+
+#: templates/quizResults.html:22
+msgid "Great!"
+msgstr "Génial !"
+
+#: templates/quizResults.html:38
+msgid "Keep Trying!"
+msgstr "Continuez d'essayer !"
+
+#: templates/quizResults.html:46
+msgid "Questions You Got Wrong"
+msgstr "Questions que vous avez mal répondues"
+
+#: templates/quizResults.html:65 templates/quizResults.html:71
+#: templates/quizResults.html:74
+msgid "Your Answer:"
+msgstr "Votre réponse :"
+
+#: templates/quizResults.html:78
+msgid "Replay Audio"
+msgstr "Rejouer l'audio"
+
+#: templates/quizResults.html:80
+msgid "Question Type:"
+msgstr "Type de question :"
+
+#: templates/register.html:25
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: templates/register.html:49
+msgid "Send Captcha"
+msgstr "Envoyer le Captcha"
+
+#: templates/register.html:56
+msgid "Enter Captcha"
+msgstr "Entrez le Captcha"
+
+#: templates/register.html:83
+msgid "Repeat your password"
+msgstr "Répétez votre mot de passe"
+
+#: templates/register.html:100
+msgid "Optional: Enter your age"
+msgstr "Optionnel : Entrez votre âge"
+
+#: templates/register.html:116
+msgid "Register"
+msgstr "S'inscrire"
+
+#: templates/register.html:120
+msgid "Already a member?"
+msgstr "Déjà membre ?"
+
+#: templates/register.html:120
+msgid "Log in"
+msgstr "Connexion"
+
+#~ msgid "Phonemic Transcription Quiz"
+#~ msgstr "Quiz de transcription phonémique"
+
+#~ msgid "Stats"
+#~ msgstr "Statistiques"
+
+#~ msgid "Date:"
+#~ msgstr ""
+

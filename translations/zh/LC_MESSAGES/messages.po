@@ -1,0 +1,415 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-28 04:09-0400\n"
+"PO-Revision-Date: 2024-08-27 05:42-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: templates/dashboard.html:4 templates/pageTemplate.html:4
+#: templates/pageTemplate.html:29 templates/pageTemplate.html:56
+#: templates/pageTemplate.html:82
+msgid "Dashboard"
+msgstr "儀表板"
+
+#: templates/dashboard.html:11
+msgid "User Information"
+msgstr ""
+
+#: templates/dashboard.html:13
+#, fuzzy
+msgid "Name:"
+msgstr "用戶名"
+
+#: templates/dashboard.html:14
+#, fuzzy
+msgid "Date Registered:"
+msgstr "註冊"
+
+#: templates/dashboard.html:18
+msgid "Display Language"
+msgstr ""
+
+#: templates/dashboard.html:26
+msgid "Native Language"
+msgstr ""
+
+#: templates/dashboard.html:33
+msgid "Update Preferences"
+msgstr ""
+
+#: templates/dashboard.html:41
+msgid "Recent Test Accuracy"
+msgstr ""
+
+#: templates/dashboard.html:52
+msgid "Tested Language Map"
+msgstr ""
+
+#: templates/dashboard.html:61
+msgid "Recent Errors"
+msgstr ""
+
+#: templates/dashboard.html:67 templates/quizResults.html:52
+msgid "Question"
+msgstr "問題"
+
+#: templates/dashboard.html:68
+#, fuzzy
+msgid "Your Answer"
+msgstr "您的答案："
+
+#: templates/dashboard.html:69
+#, fuzzy
+msgid "Correct Answer"
+msgstr "正確答案："
+
+#: templates/dashboard.html:70 templates/dashboard.html:87
+msgid "Accuracy"
+msgstr ""
+
+#: templates/dashboard.html:75
+msgid "No errors to display."
+msgstr ""
+
+#: templates/emailVerification.html:77
+msgid "Signup Captcha for Phonemic Practice++"
+msgstr "Phonemic Practice++ 註冊驗證碼"
+
+#: templates/emailVerification.html:80
+msgid "Dear"
+msgstr "親愛的"
+
+#: templates/emailVerification.html:82
+msgid ""
+"We have received a login request for your Phonemic Practice++ account. "
+"For security purposes, please verify your identity by providing the "
+"following One-Time Password (OTP)."
+msgstr "我們已收到您 Phonemic Practice++ 帳戶的登入請求。為了安全起見，請提供以下一次性密碼 (OTP) 來驗證您的身份。"
+
+#: templates/emailVerification.html:84
+msgid "Your One-Time Password (OTP) verification code is:"
+msgstr "您的一次性密碼 (OTP) 驗證碼是："
+
+#: templates/emailVerification.html:88
+msgid "The One-Time Password (OTP) is valid for 5 minutes."
+msgstr "一次性密碼 (OTP) 有效期為 5 分鐘。"
+
+#: templates/emailVerification.html:91
+msgid ""
+"If you did not initiate this login request, please disregard this "
+"message. Please ensure the confidentiality of your OTP and do not share "
+"it with anyone."
+msgstr "如果您沒有發起此登入請求，請忽略此消息。請確保您的 OTP 保密，不要與他人分享。"
+
+#: templates/emailVerification.html:92
+msgid "Do not forward or give this code to anyone."
+msgstr "請勿轉發或將此代碼提供給任何人。"
+
+#: templates/emailVerification.html:95
+msgid "Thank you for using Phonemic Practice++."
+msgstr "感謝您使用 Phonemic Practice++。"
+
+#: templates/emailVerification.html:98
+msgid "Best regards,"
+msgstr "此致敬禮，"
+
+#: templates/emailVerification.html:100
+msgid "The Phonemic Practice++ Team"
+msgstr "Phonemic Practice++ 團隊"
+
+#: templates/emailVerification.html:105
+msgid "This email can't receive replies."
+msgstr "此電子郵件無法接收回覆。"
+
+#: templates/emailVerification.html:107
+msgid "For more information about Phonemic Practice++ and your account, visit"
+msgstr "如需更多關於 Phonemic Practice++ 和您帳戶的信息，請訪問"
+
+#: templates/emailVerification.html:108
+msgid "[Website Name]"
+msgstr "[Website Name]"
+
+#: templates/emailVerification.html:115
+msgid "This email was sent to"
+msgstr "此電子郵件已發送至"
+
+#: templates/emailVerification.html:121
+msgid "Michael Bennie"
+msgstr "陳宇賀"
+
+#: templates/emailVerification.html:121
+msgid "All rights reserved."
+msgstr "版權所有。"
+
+#: templates/languageSelect.html:4 templates/languageSelect.html:9
+msgid "Phonemic Transcription Quiz"
+msgstr "Phonemic Transcription 測驗"
+
+#: templates/languageSelect.html:15
+msgid "Which languages do you want to quiz yourself on?"
+msgstr "您想測試哪些語言？"
+
+#: templates/languageSelect.html:20
+msgid "Toggle All"
+msgstr "全選/取消全選"
+
+#: templates/languageSelect.html:26
+msgid "How many questions do you want in your quiz?"
+msgstr "您希望測驗中有多少個問題？"
+
+#: templates/languageSelect.html:31
+msgid "Which type of questions do you want in your quiz?"
+msgstr "您希望測驗中包含哪種類型的問題？"
+
+#: templates/languageSelect.html:36
+msgid "Fill in the Blank"
+msgstr "填空"
+
+#: templates/languageSelect.html:40
+msgid "Multiple Choice"
+msgstr "選擇題"
+
+#: templates/languageSelect.html:44
+msgid "Organize Sounds"
+msgstr "排列音素"
+
+#: templates/languageSelect.html:51
+msgid "Play Now"
+msgstr "立即開始"
+
+#: templates/login.html:4 templates/login.html:8 templates/login.html:48
+#: templates/pageTemplate.html:63
+msgid "Log In"
+msgstr "登入"
+
+#: templates/login.html:20 templates/register.html:39
+msgid "Email"
+msgstr "電子郵件"
+
+#: templates/login.html:32 templates/register.html:71
+msgid "Password"
+msgstr "密碼"
+
+#: templates/login.html:52
+msgid "Don't have an account?"
+msgstr "還沒有帳戶？"
+
+#: templates/login.html:52
+msgid "Sign up"
+msgstr "註冊"
+
+#: templates/pageTemplate.html:13
+msgid "Transcribe++"
+msgstr "Transcribe++"
+
+#: templates/pageTemplate.html:21
+msgid "Home"
+msgstr "首頁"
+
+#: templates/pageTemplate.html:25
+msgid "Quiz"
+msgstr "測驗"
+
+#: templates/pageTemplate.html:58
+msgid "Logout"
+msgstr "登出"
+
+#: templates/pageTemplate.html:67 templates/register.html:4
+#: templates/register.html:8
+msgid "Sign Up"
+msgstr "註冊"
+
+#: templates/pageTemplate.html:95 templates/q_fill_in_the_blank.html:117
+#: templates/q_multiple_choice.html:71
+msgid "Close"
+msgstr "關閉"
+
+#: templates/pageTemplate.html:107 templates/questionsBase.html:61
+msgid "Made by Michael Bennie"
+msgstr "由陳宇賀製作"
+
+#: templates/q_fill_in_the_blank.html:4
+msgid "What's Missing?"
+msgstr "缺少什麼？"
+
+#: templates/q_fill_in_the_blank.html:8
+msgid "What Sounds are Missing?"
+msgstr "哪些聲音丟失了？"
+
+#: templates/q_fill_in_the_blank.html:12
+msgid "Fill in the yellow area with the correct phonemes."
+msgstr "在黃色區域填入正確的音素。"
+
+#: templates/q_fill_in_the_blank.html:108 templates/q_multiple_choice.html:61
+#: templates/q_organize_sounds.html:66 templates/questionsBase.html:57
+msgid "Check"
+msgstr "檢查"
+
+#: templates/q_fill_in_the_blank.html:115
+msgid "You must select one answer to continue!"
+msgstr "您必須選擇一個答案才能繼續！"
+
+#: templates/q_fill_in_the_blank.html:185 templates/q_multiple_choice.html:132
+msgid "Correct!"
+msgstr "正確！"
+
+#: templates/q_fill_in_the_blank.html:188
+#: templates/q_fill_in_the_blank.html:200 templates/q_multiple_choice.html:135
+#: templates/q_multiple_choice.html:150 templates/q_organize_sounds.html:160
+#: templates/quizResults.html:89
+msgid "Continue"
+msgstr "繼續"
+
+#: templates/q_fill_in_the_blank.html:197 templates/q_multiple_choice.html:147
+msgid "Incorrect!"
+msgstr "錯誤！"
+
+#: templates/q_multiple_choice.html:4
+msgid "You Got This!"
+msgstr "您可以的！"
+
+#: templates/q_multiple_choice.html:8
+msgid "What's the transcription?"
+msgstr "音素轉錄是什麼？"
+
+#: templates/q_multiple_choice.html:12
+msgid "Choose the closest transcription"
+msgstr "選擇最接近的音素轉錄"
+
+#: templates/q_multiple_choice.html:69
+msgid "You have to select an answer before submitting!"
+msgstr "您必須選擇一個答案才能提交！"
+
+#: templates/q_organize_sounds.html:4
+msgid "Order the phonemes!"
+msgstr "排列音素！"
+
+#: templates/q_organize_sounds.html:8
+msgid "Organize the phonemes!"
+msgstr "組織音素！"
+
+#: templates/q_organize_sounds.html:12
+msgid ""
+"Click on the set of sounds on the bottom to move them from the question "
+"zone to the response zone."
+msgstr "點擊底部的聲音組將其從問題區域移動到回答區域。"
+
+#: templates/q_organize_sounds.html:17
+msgid "Response Zone:"
+msgstr "回答區域："
+
+#: templates/q_organize_sounds.html:29
+msgid "Question Zone"
+msgstr "問題區域"
+
+#: templates/q_organize_sounds.html:135 templates/quizResults.html:14
+msgid "Amazing!"
+msgstr "太厲害了！"
+
+#: templates/q_organize_sounds.html:140 templates/quizResults.html:30
+msgid "Good!"
+msgstr "很好！"
+
+#: templates/q_organize_sounds.html:144 templates/q_organize_sounds.html:150
+#: templates/q_organize_sounds.html:156 templates/quizResults.html:68
+#: templates/quizResults.html:72 templates/quizResults.html:75
+msgid "Correct Answer:"
+msgstr "正確答案："
+
+#: templates/q_organize_sounds.html:146
+msgid "Ok!"
+msgstr "Ok！"
+
+#: templates/q_organize_sounds.html:152
+msgid "Wrong!"
+msgstr "錯誤！"
+
+#: templates/questionsBase.html:7
+msgid "X"
+msgstr "X"
+
+#: templates/quizResults.html:2 templates/quizResults.html:4
+msgid "Quiz Complete!"
+msgstr "測驗完成！"
+
+#: templates/quizResults.html:16 templates/quizResults.html:24
+#: templates/quizResults.html:32 templates/quizResults.html:40
+msgid "You scored:"
+msgstr "您的得分是："
+
+#: templates/quizResults.html:22
+msgid "Great!"
+msgstr "太棒了！"
+
+#: templates/quizResults.html:38
+msgid "Keep Trying!"
+msgstr "繼續努力！"
+
+#: templates/quizResults.html:46
+msgid "Questions You Got Wrong"
+msgstr "您答錯的問題"
+
+#: templates/quizResults.html:65 templates/quizResults.html:71
+#: templates/quizResults.html:74
+msgid "Your Answer:"
+msgstr "您的答案："
+
+#: templates/quizResults.html:78
+msgid "Replay Audio"
+msgstr "重播音頻"
+
+#: templates/quizResults.html:80
+msgid "Question Type:"
+msgstr "問題類型："
+
+#: templates/register.html:25
+msgid "Username"
+msgstr "用戶名"
+
+#: templates/register.html:49
+msgid "Send Captcha"
+msgstr "發送驗證碼"
+
+#: templates/register.html:56
+msgid "Enter Captcha"
+msgstr "輸入驗證碼"
+
+#: templates/register.html:83
+msgid "Repeat your password"
+msgstr "重複您的密碼"
+
+#: templates/register.html:100
+msgid "Optional: Enter your age"
+msgstr "可選：輸入您的年齡"
+
+#: templates/register.html:116
+msgid "Register"
+msgstr "註冊"
+
+#: templates/register.html:120
+msgid "Already a member?"
+msgstr "已經是會員？"
+
+#: templates/register.html:120
+msgid "Log in"
+msgstr "登入"
+
+#~ msgid "Stats"
+#~ msgstr "統計"
+
+#~ msgid "Date:"
+#~ msgstr ""
+

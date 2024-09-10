@@ -1,0 +1,425 @@
+# Filipino (Philippines) translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-28 04:09-0400\n"
+"PO-Revision-Date: 2024-08-27 05:42-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fil_PH\n"
+"Language-Team: fil_PH <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: templates/dashboard.html:4 templates/pageTemplate.html:4
+#: templates/pageTemplate.html:29 templates/pageTemplate.html:56
+#: templates/pageTemplate.html:82
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: templates/dashboard.html:11
+msgid "User Information"
+msgstr "Impormasyon ng Gumagamit"
+
+#: templates/dashboard.html:13
+msgid "Name:"
+msgstr "Pangalan:"
+
+#: templates/dashboard.html:14
+msgid "Date Registered:"
+msgstr "Petsa ng Pagpaparehistro:"
+
+#: templates/dashboard.html:18
+msgid "Display Language"
+msgstr "Wikang Ipakita"
+
+#: templates/dashboard.html:26
+msgid "Native Language"
+msgstr "Wikang Sinilangan"
+
+#: templates/dashboard.html:33
+msgid "Update Preferences"
+msgstr "I-update ang Mga Kagustuhan"
+
+#: templates/dashboard.html:41
+msgid "Recent Test Accuracy"
+msgstr "Katumpakan ng Kamakailang Pagsusulit"
+
+#: templates/dashboard.html:52
+msgid "Tested Language Map"
+msgstr "Mapa ng Nasuring Wika"
+
+#: templates/dashboard.html:61
+msgid "Recent Errors"
+msgstr "Kamakailang Mga Mali"
+
+#: templates/dashboard.html:67 templates/quizResults.html:52
+msgid "Question"
+msgstr "Tanong"
+
+#: templates/dashboard.html:68
+msgid "Your Answer"
+msgstr "Ang Iyong Sagot"
+
+#: templates/dashboard.html:69
+msgid "Correct Answer"
+msgstr "Tamang Sagot"
+
+#: templates/dashboard.html:70 templates/dashboard.html:87
+msgid "Accuracy"
+msgstr "Katumpakan"
+
+#: templates/dashboard.html:75
+msgid "No errors to display."
+msgstr "Walang mga mali na ipapakita."
+
+#: templates/emailVerification.html:77
+msgid "Signup Captcha for Phonemic Practice++"
+msgstr "Captcha ng Pag-signup para sa Phonemic Practice++"
+
+#: templates/emailVerification.html:80
+msgid "Dear"
+msgstr "Mahal"
+
+#: templates/emailVerification.html:82
+msgid ""
+"We have received a login request for your Phonemic Practice++ account. "
+"For security purposes, please verify your identity by providing the "
+"following One-Time Password (OTP)."
+msgstr ""
+"Nakatanggap kami ng isang kahilingan sa pag-login para sa iyong Phonemic "
+"Practice++ account. Para sa mga layuning pang-seguridad, pakitiyak ang "
+"iyong pagkakakilanlan sa pamamagitan ng pagbibigay ng sumusunod na One-"
+"Time Password (OTP)."
+
+#: templates/emailVerification.html:84
+msgid "Your One-Time Password (OTP) verification code is:"
+msgstr "Ang iyong verification code ng One-Time Password (OTP) ay:"
+
+#: templates/emailVerification.html:88
+msgid "The One-Time Password (OTP) is valid for 5 minutes."
+msgstr "Ang One-Time Password (OTP) ay may bisa sa loob ng 5 minuto."
+
+#: templates/emailVerification.html:91
+msgid ""
+"If you did not initiate this login request, please disregard this "
+"message. Please ensure the confidentiality of your OTP and do not share "
+"it with anyone."
+msgstr ""
+"Kung hindi ikaw ang nagsimula ng kahilingang ito, paki-ignore ang "
+"mensaheng ito. Siguraduhin ang pagiging kumpidensyal ng iyong OTP at "
+"huwag itong ibahagi sa kahit sino."
+
+#: templates/emailVerification.html:92
+msgid "Do not forward or give this code to anyone."
+msgstr "Huwag ipasa o ibigay ang code na ito sa kahit sino."
+
+#: templates/emailVerification.html:95
+msgid "Thank you for using Phonemic Practice++."
+msgstr "Salamat sa paggamit ng Phonemic Practice++."
+
+#: templates/emailVerification.html:98
+msgid "Best regards,"
+msgstr "Lubos na gumagalang,"
+
+#: templates/emailVerification.html:100
+msgid "The Phonemic Practice++ Team"
+msgstr "Ang Koponan ng Phonemic Practice++"
+
+#: templates/emailVerification.html:105
+msgid "This email can't receive replies."
+msgstr "Ang email na ito ay hindi makakatanggap ng mga tugon."
+
+#: templates/emailVerification.html:107
+msgid "For more information about Phonemic Practice++ and your account, visit"
+msgstr ""
+"Para sa karagdagang impormasyon tungkol sa Phonemic Practice++ at sa "
+"iyong account, bisitahin"
+
+#: templates/emailVerification.html:108
+msgid "[Website Name]"
+msgstr "[Pangalan ng Website]"
+
+#: templates/emailVerification.html:115
+msgid "This email was sent to"
+msgstr "Ang email na ito ay ipinadala sa"
+
+#: templates/emailVerification.html:121
+msgid "Michael Bennie"
+msgstr "Michael Bennie"
+
+#: templates/emailVerification.html:121
+msgid "All rights reserved."
+msgstr "Lahat ng karapatan ay nakalaan."
+
+#: templates/languageSelect.html:4 templates/languageSelect.html:9
+msgid "Phonemic Transcription Quiz"
+msgstr "Pagsusulit sa Transkripsyong Ponemiko"
+
+#: templates/languageSelect.html:15
+msgid "Which languages do you want to quiz yourself on?"
+msgstr "Aling mga wika ang nais mong suriin ang iyong sarili?"
+
+#: templates/languageSelect.html:20
+msgid "Toggle All"
+msgstr "Piliin/Lagyan ng Markang Lahat"
+
+#: templates/languageSelect.html:26
+msgid "How many questions do you want in your quiz?"
+msgstr "Ilang mga tanong ang nais mo sa iyong pagsusulit?"
+
+#: templates/languageSelect.html:31
+msgid "Which type of questions do you want in your quiz?"
+msgstr "Anong uri ng mga tanong ang nais mo sa iyong pagsusulit?"
+
+#: templates/languageSelect.html:36
+msgid "Fill in the Blank"
+msgstr "Punan ang Blangko"
+
+#: templates/languageSelect.html:40
+msgid "Multiple Choice"
+msgstr "Pagpili ng Maramihan"
+
+#: templates/languageSelect.html:44
+msgid "Organize Sounds"
+msgstr "Ayusin ang Mga Tunog"
+
+#: templates/languageSelect.html:51
+msgid "Play Now"
+msgstr "Maglaro Ngayon"
+
+#: templates/login.html:4 templates/login.html:8 templates/login.html:48
+#: templates/pageTemplate.html:63
+msgid "Log In"
+msgstr "Mag-Log In"
+
+#: templates/login.html:20 templates/register.html:39
+msgid "Email"
+msgstr "Email"
+
+#: templates/login.html:32 templates/register.html:71
+msgid "Password"
+msgstr "Password"
+
+#: templates/login.html:52
+msgid "Don't have an account?"
+msgstr "Wala ka bang account?"
+
+#: templates/login.html:52
+msgid "Sign up"
+msgstr "Mag-sign up"
+
+#: templates/pageTemplate.html:13
+msgid "Transcribe++"
+msgstr "Transcribe++"
+
+#: templates/pageTemplate.html:21
+msgid "Home"
+msgstr "Tahanan"
+
+#: templates/pageTemplate.html:25
+msgid "Quiz"
+msgstr "Pagsusulit"
+
+#: templates/pageTemplate.html:58
+msgid "Logout"
+msgstr "Mag-Logout"
+
+#: templates/pageTemplate.html:67 templates/register.html:4
+#: templates/register.html:8
+msgid "Sign Up"
+msgstr "Mag-sign up"
+
+#: templates/pageTemplate.html:95 templates/q_fill_in_the_blank.html:117
+#: templates/q_multiple_choice.html:71
+msgid "Close"
+msgstr "Isara"
+
+#: templates/pageTemplate.html:107 templates/questionsBase.html:61
+msgid "Made by Michael Bennie"
+msgstr "Ginawa ni Michael Bennie"
+
+#: templates/q_fill_in_the_blank.html:4
+msgid "What's Missing?"
+msgstr "Ano ang Nawawala?"
+
+#: templates/q_fill_in_the_blank.html:8
+msgid "What Sounds are Missing?"
+msgstr "Anong mga Tunog ang Nawawala?"
+
+#: templates/q_fill_in_the_blank.html:12
+msgid "Fill in the yellow area with the correct phonemes."
+msgstr "Punan ang dilaw na bahagi ng tamang mga ponema."
+
+#: templates/q_fill_in_the_blank.html:108 templates/q_multiple_choice.html:61
+#: templates/q_organize_sounds.html:66 templates/questionsBase.html:57
+msgid "Check"
+msgstr "Suriin"
+
+#: templates/q_fill_in_the_blank.html:115
+msgid "You must select one answer to continue!"
+msgstr ""
+
+#: templates/q_fill_in_the_blank.html:185 templates/q_multiple_choice.html:132
+#, fuzzy
+msgid "Correct!"
+msgstr "Tamang Sagot"
+
+#: templates/q_fill_in_the_blank.html:188
+#: templates/q_fill_in_the_blank.html:200 templates/q_multiple_choice.html:135
+#: templates/q_multiple_choice.html:150 templates/q_organize_sounds.html:160
+#: templates/quizResults.html:89
+msgid "Continue"
+msgstr ""
+
+#: templates/q_fill_in_the_blank.html:197 templates/q_multiple_choice.html:147
+msgid "Incorrect!"
+msgstr ""
+
+#: templates/q_multiple_choice.html:4
+msgid "You Got This!"
+msgstr ""
+
+#: templates/q_multiple_choice.html:8
+#, fuzzy
+msgid "What's the transcription?"
+msgstr "Pagsusulit sa Transkripsyong Ponemiko"
+
+#: templates/q_multiple_choice.html:12
+#, fuzzy
+msgid "Choose the closest transcription"
+msgstr "Pagsusulit sa Transkripsyong Ponemiko"
+
+#: templates/q_multiple_choice.html:69
+msgid "You have to select an answer before submitting!"
+msgstr ""
+
+#: templates/q_organize_sounds.html:4
+msgid "Order the phonemes!"
+msgstr ""
+
+#: templates/q_organize_sounds.html:8
+msgid "Organize the phonemes!"
+msgstr ""
+
+#: templates/q_organize_sounds.html:12
+msgid ""
+"Click on the set of sounds on the bottom to move them from the question "
+"zone to the response zone."
+msgstr ""
+
+#: templates/q_organize_sounds.html:17
+msgid "Response Zone:"
+msgstr ""
+
+#: templates/q_organize_sounds.html:29
+#, fuzzy
+msgid "Question Zone"
+msgstr "Tanong"
+
+#: templates/q_organize_sounds.html:135 templates/quizResults.html:14
+msgid "Amazing!"
+msgstr ""
+
+#: templates/q_organize_sounds.html:140 templates/quizResults.html:30
+msgid "Good!"
+msgstr ""
+
+#: templates/q_organize_sounds.html:144 templates/q_organize_sounds.html:150
+#: templates/q_organize_sounds.html:156 templates/quizResults.html:68
+#: templates/quizResults.html:72 templates/quizResults.html:75
+#, fuzzy
+msgid "Correct Answer:"
+msgstr "Tamang Sagot"
+
+#: templates/q_organize_sounds.html:146
+msgid "Ok!"
+msgstr ""
+
+#: templates/q_organize_sounds.html:152
+msgid "Wrong!"
+msgstr ""
+
+#: templates/questionsBase.html:7
+msgid "X"
+msgstr ""
+
+#: templates/quizResults.html:2 templates/quizResults.html:4
+msgid "Quiz Complete!"
+msgstr ""
+
+#: templates/quizResults.html:16 templates/quizResults.html:24
+#: templates/quizResults.html:32 templates/quizResults.html:40
+msgid "You scored:"
+msgstr ""
+
+#: templates/quizResults.html:22
+msgid "Great!"
+msgstr ""
+
+#: templates/quizResults.html:38
+msgid "Keep Trying!"
+msgstr ""
+
+#: templates/quizResults.html:46
+msgid "Questions You Got Wrong"
+msgstr ""
+
+#: templates/quizResults.html:65 templates/quizResults.html:71
+#: templates/quizResults.html:74
+#, fuzzy
+msgid "Your Answer:"
+msgstr "Ang Iyong Sagot"
+
+#: templates/quizResults.html:78
+#, fuzzy
+msgid "Replay Audio"
+msgstr "Maglaro Ngayon"
+
+#: templates/quizResults.html:80
+#, fuzzy
+msgid "Question Type:"
+msgstr "Tanong"
+
+#: templates/register.html:25
+#, fuzzy
+msgid "Username"
+msgstr "Pangalan:"
+
+#: templates/register.html:49
+msgid "Send Captcha"
+msgstr ""
+
+#: templates/register.html:56
+msgid "Enter Captcha"
+msgstr ""
+
+#: templates/register.html:83
+msgid "Repeat your password"
+msgstr ""
+
+#: templates/register.html:100
+msgid "Optional: Enter your age"
+msgstr ""
+
+#: templates/register.html:116
+#, fuzzy
+msgid "Register"
+msgstr "Petsa ng Pagpaparehistro:"
+
+#: templates/register.html:120
+msgid "Already a member?"
+msgstr ""
+
+#: templates/register.html:120
+#, fuzzy
+msgid "Log in"
+msgstr "Mag-Log In"
+
